@@ -14,7 +14,7 @@ var commonLoaders = [
      * TC39 categorises proposals for babel in 4 stages
      * Read more http://babeljs.io/docs/usage/experimental/
      */
-    test: /\.js$|\.jsx$/,
+    test: /\.js$|\.es6$|\.jsx$/,
     loaders: ["react-hot", "babel-loader?stage=0"],
     include: path.join(__dirname, "..", "app")
   },
@@ -50,7 +50,7 @@ module.exports = [
     entry: {
       app:[ 'webpack-dev-server/client?http://' + WEBPACK_HOST + ":" + WEBPACK_PORT,
        'webpack/hot/only-dev-server',
-        "./client" ]
+       "./client" ]
     },
     output: {
       // The output directory as absolute path
@@ -63,7 +63,7 @@ module.exports = [
     },
     module: {
       preLoaders: [{
-        test: /\.js$|\.jsx$/,
+        test: /\.js$|\.es6$|\.jsx$/,
         exclude: /node_modules/,
         loaders: ["eslint"]
       }],

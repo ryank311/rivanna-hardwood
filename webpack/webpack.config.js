@@ -11,7 +11,7 @@ var commonLoaders = [
      * TC39 categorises proposals for babel in 4 stages
      * Read more http://babeljs.io/docs/usage/experimental/
      */
-    test: /\.js$|\.jsx$/,
+    test: /\.js$|\.es6$|\.jsx$/,
     loader: "babel-loader?stage=0",
     include: path.join(__dirname, "..",  "app")
   },
