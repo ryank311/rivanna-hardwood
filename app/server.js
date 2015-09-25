@@ -1,10 +1,10 @@
 import Iso from 'iso';
 import React from 'react';
 import Router from 'react-router';
-import Location from 'react-router/lib/Location';
+import {createMemoryHistory} from 'history';
 
 import alt from 'altInstance';
-import routes from 'routes.jsx';
+import routes from 'routes.js';
 import html from 'base.html';
 
 /*
@@ -14,18 +14,18 @@ import html from 'base.html';
  * @param {Object} req passed from Express/Koa server
  */
 const renderToMarkup = (alt, state, req, res) => {
-  let markup;
-  let location = new Location(req.path, req.query);
-  alt.bootstrap(state);
-  Router.run(routes, location, (error, initialState, transition) => {
-    if (transition.isCancelled) {
-      return res.redirect(302, transition.redirectInfo.pathname);
-    }
-    let content = React.renderToString(<Router {...initialState} />);
-    markup = Iso.render(content, alt.flush());
-  });
+    let markup;
 
-  return markup;
+    let history = createMemoryHistory();
+    history.pushState(state, req.path);
+    alt.bootstrap(state);
+    //if (transition.isCancelled) {
+    //  return res.redirect(302, transition.redirectInfo.pathname);
+    //}
+    let content = React.renderToString(<Router history={history} {...state}>{routes}</Router>);
+    markup = Iso.render(content, alt.flush());
+
+    return markup;
 };
 
 /* 
