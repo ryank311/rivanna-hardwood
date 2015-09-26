@@ -18,9 +18,9 @@ var commonLoaders = [
     loaders: ["react-hot", "babel-loader?stage=0"],
     include: path.join(__dirname, "..", "app")
   },
-  { test: /\.png$/, loader: "url-loader" },
-  { test: /\.jpg$/, loader: "file-loader" },
-  { test: /\.html$/, loader: "html-loader" }
+  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(&.*)?$/, loader: "url-loader" },
+  { test: /\.html$/, loader: "html-loader" },
+  { test: /\.css$/, loader: 'style!css?'}
 ];
 
 module.exports = [
@@ -76,14 +76,19 @@ module.exports = [
       ])
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
       modulesDirectories: [
         "app", "node_modules"
       ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
     ]
   }, {
     // The configuration for the server-side rendering
@@ -114,7 +119,7 @@ module.exports = [
       ])
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
       modulesDirectories: [
         "app", "node_modules"
       ]

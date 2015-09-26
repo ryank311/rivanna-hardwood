@@ -1,0 +1,12 @@
+/*
+ Style Guide Lines. Remove if you prefer your own library
+ */
+.home-logo-container {
+    padding: 2em 0;
+    .home-logo {
+        background: url('../../images/logo-transparent.png') no-repeat center;
+        background-size: contain;
+        height: 30em;
+        max-height: 40vh;
+    }
+}

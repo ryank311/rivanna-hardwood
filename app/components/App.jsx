@@ -29,7 +29,9 @@ export default class App extends React.Component {
         TopicStore: TopicStore
       }}>
         <Navigation />
-        {this.props.children}
+        <div className="container-fluid">
+            {this.props.children}
+        </div>
       </AltContainer>
     );
   }

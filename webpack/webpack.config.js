@@ -15,8 +15,7 @@ var commonLoaders = [
     loader: "babel-loader?stage=0",
     include: path.join(__dirname, "..",  "app")
   },
-  { test: /\.png$/, loader: "url-loader" },
-  { test: /\.jpg$/, loader: "file-loader" },
+  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(&.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.scss$/,
     loader: ExtractTextPlugin.extract('style', 'css?module&localIdentName=[local]__[hash:base64:5]' +
@@ -71,7 +70,7 @@ module.exports = [
       loaders: commonLoaders
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
       modulesDirectories: [
         "app", "node_modules"
       ]
@@ -79,7 +78,12 @@ module.exports = [
     plugins: [
         // extract inline css from modules into separate files
         new ExtractTextPlugin("styles/main.css"),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
     ]
   }, {
     // The configuration for the server-side rendering
@@ -110,7 +114,7 @@ module.exports = [
       loaders: commonLoaders
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
       modulesDirectories: [
         "app", "node_modules"
       ]
