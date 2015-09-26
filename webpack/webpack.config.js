@@ -17,11 +17,23 @@ var commonLoaders = [
   },
   { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(&.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
+  { test: /\.css$/, loader: 'style!css?'},
   { test: /\.scss$/,
     loader: ExtractTextPlugin.extract('style', 'css?module&localIdentName=[local]__[hash:base64:5]' +
       '&sourceMap!sass?sourceMap&outputStyle=expanded' +
       '&includePaths[]=' + (path.resolve(__dirname, '../node_modules')))
   }
+];
+
+var commonPlugins = [
+    // extract inline css from modules into separate files
+    new ExtractTextPlugin("styles/main.css"),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+    })
 ];
 
 module.exports = [
@@ -70,21 +82,12 @@ module.exports = [
       loaders: commonLoaders
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.css', '.scss', '.sass'],
       modulesDirectories: [
         "app", "node_modules"
       ]
     },
-    plugins: [
-        // extract inline css from modules into separate files
-        new ExtractTextPlugin("styles/main.css"),
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
-        })
-    ]
+    plugins: commonPlugins
   }, {
     // The configuration for the server-side rendering
     name: "server-side rendering",
@@ -114,15 +117,11 @@ module.exports = [
       loaders: commonLoaders
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.css', '.scss', '.sass'],
       modulesDirectories: [
         "app", "node_modules"
       ]
     },
-    plugins: [
-        // extract inline css from modules into separate files
-        new ExtractTextPlugin("styles/main.css"),
-        new webpack.optimize.UglifyJsPlugin()
-    ]
+    plugins: commonPlugins
   }
 ];

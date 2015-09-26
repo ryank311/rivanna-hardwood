@@ -18,7 +18,7 @@ var commonLoaders = [
     loaders: ["react-hot", "babel-loader?stage=0"],
     include: path.join(__dirname, "..", "app")
   },
-  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(&.*)?$/, loader: "url-loader" },
+  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(\?.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.css$/, loader: 'style!css?'}
 ];
@@ -76,7 +76,7 @@ module.exports = [
       ])
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass', '.css', '.woff2', '.woff', '.eot', '.ttf', '.svg'],
       modulesDirectories: [
         "app", "node_modules"
       ]
@@ -119,7 +119,7 @@ module.exports = [
       ])
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass', '.css', '.woff2', '.woff', '.eot', '.ttf', '.svg'],
       modulesDirectories: [
         "app", "node_modules"
       ]

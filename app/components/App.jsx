@@ -2,9 +2,9 @@ import React from 'react';
 import AltContainer from 'alt/AltContainer';
 import UserStore from 'stores/UserStore';
 import TopicStore from 'stores/TopicStore';
-import Navigation from 'components/Navigation';
+import Navigation from 'components/common/Navigation';
 
-import 'scss/main';
+import '../scss/main.scss';
 
 /*
  * This component operates as a "Controller-View". It listens for changes in the

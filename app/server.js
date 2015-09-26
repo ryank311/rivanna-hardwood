@@ -1,7 +1,7 @@
 import Iso from 'iso';
 import React from 'react';
-import Router from 'react-router';
-import {createMemoryHistory} from 'history';
+import { RoutingContext, match } from 'react-router'
+import createLocation from 'history/lib/createLocation';
 
 import alt from 'altInstance';
 import routes from 'routes.js';
@@ -14,18 +14,23 @@ import html from 'base.html';
  * @param {Object} req passed from Express/Koa server
  */
 const renderToMarkup = (alt, state, req, res) => {
-    let markup;
+  let markup, content;
+  let location = new createLocation(req.url);
+  alt.bootstrap(state);
 
-    let history = createMemoryHistory();
-    history.pushState(state, req.path);
-    alt.bootstrap(state);
-    //if (transition.isCancelled) {
-    //  return res.redirect(302, transition.redirectInfo.pathname);
-    //}
-    let content = React.renderToString(<Router history={history} {...state}>{routes}</Router>);
-    markup = Iso.render(content, alt.flush());
+  match({ routes, location }, (error, redirectLocation, renderProps) => {
+    if (redirectLocation)
+      res.redirect(301, redirectLocation.pathname + redirectLocation.search);
+    else if (error)
+      res.status(500).send(error.message);
+    else if (renderProps == null)
+      res.status(404).send('Not found');
+    else
+      content = React.renderToString(<RoutingContext {...renderProps} />);
+      markup = Iso.render(content, alt.flush());
+  });
 
-    return markup;
+  return markup;
 };
 
 /* 
