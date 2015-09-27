@@ -88,26 +88,24 @@ module.exports = function (app, passport) {
   var port = (node_env === 'production') ? app.get('port') : 3000;
 
   // We only run this workflow when not in Production && require a hot-loader
-  if(node_env === 'devhotloader') {
+  if(node_env === 'development') {
     // We require the bundle inside the if block because
     // it is only needed in a development environment.
-    var devServer = require('../dev-server');
-    devServer();
+    // var devServer = require('../dev-server');
+    // devServer();
 
     // Any request to localhost:3000 is proxied to webpack-dev-server
     app.all('/assets/*', function(req, res) {
       proxy.web(req, res, {
-          target: 'http://localhost:3001'
+        target: 'http://localhost:3001'
       });
     });
 
+    // It is important to catch any errors from the proxy or the
+    // server will crash. An example of this is connecting to the
+    // server when webpack is bundling
+    proxy.on('error', function(e) {
+      console.log('Could not connect to proxy, please try again...');
+    });
   }
-
-  // It is important to catch any errors from the proxy or the
-  // server will crash. An example of this is connecting to the
-  // server when webpack is bundling
-  proxy.on('error', function(e) {
-    console.log('Could not connect to proxy, please try again...');
-  });
-
 };

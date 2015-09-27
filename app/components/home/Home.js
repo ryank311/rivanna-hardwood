@@ -8,7 +8,9 @@ export default class Home extends React.Component {
     super();
     this.state = {
       displayInfoCards: false,
-      animatePosition: 100,
+      displayAboutCards: false,
+      infoAnimate: 100,
+      aboutAnimate: 750,
       scrollListener: this.handleScroll.bind(this)
     };
   }
@@ -26,6 +28,9 @@ export default class Home extends React.Component {
     let cardClass1 = classNames('text-center', styles['delay-1'], styles['info-card'], (showCards ? styles['show-card'] : ''));
     let cardClass2 = classNames('text-center', styles['delay-2'], styles['info-card'], (showCards ? styles['show-card'] : ''));
     let cardClass3 = classNames('text-center', styles['delay-3'], styles['info-card'], (showCards ? styles['show-card'] : ''));
+
+    let showAbout = this.state.displayAboutCards;
+    let aboutCardClass = classNames('col-sm-12', styles['about-card'], (showAbout ? styles['fade-in-left'] : ''));
     return (
         <div>
             <div className="row">
@@ -57,7 +62,7 @@ export default class Home extends React.Component {
                             <div className={cardClass3}>
                                 <i className="fa fa-map-marker"></i>
                                 <h2>Local</h2>
-                                <p>Locally owned and proudly serving the Rivanna area</p>
+                                <p>Locally owned and proudly serving the Charlottesville area</p>
                             </div>
                         </div>
                     </div>
@@ -67,13 +72,13 @@ export default class Home extends React.Component {
                 <div className="col-sm-12">
                     <div className="container">
                         <div className="row">
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 text-center">
                                 <h1>About Rivanna Wood Floors</h1>
                             </div>
                         </div>
-                        <div className={'col-sm-12 ' + styles['about-card']}>
+                        <div className={aboutCardClass}>
                             <div className="col-sm-8">
-                                <h2>Chris Cempre</h2>
+                                <h1>Chris Cempre</h1>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
                             <div className="col-sm-4">
@@ -93,10 +98,12 @@ export default class Home extends React.Component {
       return;
     }
     let scrollTop = event.srcElement.body.scrollTop;
-    let displayInfoCards = scrollTop > this.state.animatePosition;
+    let displayInfoCards = scrollTop > this.state.infoAnimate;
+    let displayAboutCards = scrollTop > this.state.aboutAnimate;
 
     this.setState({
-      displayInfoCards: this.state.displayInfoCards || displayInfoCards
+      displayInfoCards: this.state.displayInfoCards || displayInfoCards,
+      displayAboutCards: this.state.displayAboutCards || displayAboutCards
     });
   }
 }
