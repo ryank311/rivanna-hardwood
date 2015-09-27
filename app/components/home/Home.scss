@@ -13,7 +13,7 @@
 }
 
 .media-bg {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ccc;
     background: url('../../images/home-bg.jpg') no-repeat center;
     background-size: cover;
     height: 50em;
@@ -26,16 +26,27 @@
 .info-card {
     padding: 2em;
     background-color: #fff;
-    border-bottom: 2px solid #ddd;
+    border-radius: 0.4em;
+    border-bottom: 2px solid #ccc;
     height: 20em;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+
     i {
         font-size: 8em;
         display: block;
     }
 }
 
+.show-card {
+    visiblity: visible;
+    opacity: 1;
+}
+
 .about-card {
     margin-top: 10em;
+    margin-bottom: 10em;
     padding: 2em;
     border-radius: 0.4em;
     border-bottom: 2px solid #ddd;

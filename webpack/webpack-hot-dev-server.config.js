@@ -27,6 +27,7 @@ module.exports = [
   {
     // The configuration for the client
     name: "browser",
+    devtool: "cheap-module-eval-source-map",
     /* The entry point of the bundle
      * Entry points for multi page app could be more complex
      * A good example of entry points would be:
