@@ -31,11 +31,20 @@
     height: 20em;
     opacity: 0;
     margin-top: 4em;
-    transition: all 0.45;
+    transition: all 0.5s;
 
     i {
         font-size: 8em;
         display: block;
+    }
+}
+
+$delay-values: 0s, 1s, 2s;
+
+@each $value in $delay-values {
+    $i: index($delay-values, $value);
+    .delay-#{$i} {
+        transition-delay: $value;
     }
 }
 

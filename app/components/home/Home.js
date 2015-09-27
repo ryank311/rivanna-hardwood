@@ -8,6 +8,7 @@ export default class Home extends React.Component {
     super();
     this.state = {
       displayInfoCards: false,
+      animatePosition: 100,
       scrollListener: this.handleScroll.bind(this)
     };
   }
@@ -22,7 +23,9 @@ export default class Home extends React.Component {
 
   render() {
     let showCards = this.state.displayInfoCards;
-    let cardClasses = classNames('text-center', styles['info-card'], (showCards ? styles['show-card'] : ''));
+    let cardClass1 = classNames('text-center', styles['delay-1'], styles['info-card'], (showCards ? styles['show-card'] : ''));
+    let cardClass2 = classNames('text-center', styles['delay-2'], styles['info-card'], (showCards ? styles['show-card'] : ''));
+    let cardClass3 = classNames('text-center', styles['delay-3'], styles['info-card'], (showCards ? styles['show-card'] : ''));
     return (
         <div>
             <div className="row">
@@ -37,21 +40,21 @@ export default class Home extends React.Component {
                 <div className="col-sm-12">
                     <div className={'container ' + styles['card-container']}>
                         <div className="col-sm-4">
-                            <div className={cardClasses}>
+                            <div className={cardClass1}>
                                 <i className="fa fa-home"></i>
                                 <h2>Residential</h2>
                                 <p>Repairs, Replacements and Upgrades</p>
                             </div>
                         </div>
                         <div className="col-sm-4">
-                            <div className={cardClasses}>
+                            <div className={cardClass2}>
                                 <i className="fa fa-building-o"></i>
                                 <h2>Commercial</h2>
                                 <p>High quality detail with professional results</p>
                             </div>
                         </div>
                         <div className="col-sm-4">
-                            <div className={cardClasses}>
+                            <div className={cardClass3}>
                                 <i className="fa fa-map-marker"></i>
                                 <h2>Local</h2>
                                 <p>Locally owned and proudly serving the Rivanna area</p>
@@ -86,8 +89,11 @@ export default class Home extends React.Component {
   }
 
   handleScroll(event) {
+    if (!event) {
+      return;
+    }
     let scrollTop = event.srcElement.body.scrollTop;
-    let displayInfoCards = scrollTop > 200;
+    let displayInfoCards = scrollTop > this.state.animatePosition;
 
     this.setState({
       displayInfoCards: this.state.displayInfoCards || displayInfoCards
