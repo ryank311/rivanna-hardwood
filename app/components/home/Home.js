@@ -22,7 +22,7 @@ export default class Home extends React.Component {
 
   render() {
     let showCards = this.state.displayInfoCards;
-    let cardClasses = classNames('text-center', (showCards ? styles['show-card'] : '' ), styles['info-card']);
+    let cardClasses = classNames('text-center', styles['info-card'], (showCards ? styles['show-card'] : ''));
     return (
         <div>
             <div className="row">
@@ -63,10 +63,15 @@ export default class Home extends React.Component {
             <div className={'row ' + styles['alt-bg']}>
                 <div className="col-sm-12">
                     <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <h1>About Rivanna Wood Floors</h1>
+                            </div>
+                        </div>
                         <div className={'col-sm-12 ' + styles['about-card']}>
                             <div className="col-sm-8">
-                                <h1>About Rivanna Wood Floors</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                                <h2>Chris Cempre</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
                             <div className="col-sm-4">
                                 <div className={styles['about-hero']}>
