@@ -1,0 +1,33 @@
+.card-container {
+    margin-top: 14em;
+}
+
+.info-card {
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 0.4em;
+    border-bottom: 2px solid #ccc;
+    height: 20em;
+    opacity: 0;
+    margin-top: 4em;
+    transition: all 0.5s;
+
+    i {
+        font-size: 8em;
+        display: block;
+    }
+}
+
+$delay-values: 0s, 0.6s, 1.2s;
+
+@each $value in $delay-values {
+    $i: index($delay-values, $value);
+    .delay-#{$i} {
+        transition-delay: $value;
+    }
+}
+
+.show-card {
+    margin-top: 0;
+    opacity: 1;
+}

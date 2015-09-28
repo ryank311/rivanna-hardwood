@@ -1,0 +1,23 @@
+.about-card {
+    margin: 4em 0 0 0;
+    padding: 2em;
+    border-radius: 0.4em;
+    border-bottom: 2px solid #ddd;
+    background-color: #fff;
+    opacity: 1;
+    transition: all 0.5s;
+
+    p {
+        font-size: 1.8em;
+    }
+}
+
+.fade-in-left {
+    margin-left: -4em;
+    opacity: 0;
+}
+
+.fade-in-right {
+    margin-left: 4em;
+    opacity: 0;
+}

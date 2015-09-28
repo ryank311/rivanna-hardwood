@@ -1,36 +1,12 @@
 import React from 'react';
-import classNames from 'classnames';
+import Carousel from 'nuka-carousel';
+import Cards from './Cards.js';
+import InfoCard from './InfoCard.js';
 import styles from './Home.scss';
 
 export default class Home extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      displayInfoCards: false,
-      displayAboutCards: false,
-      infoAnimate: 100,
-      aboutAnimate: 750,
-      scrollListener: this.handleScroll.bind(this)
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.state.scrollListener);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.state.scrollListener);
-  }
-
   render() {
-    let showCards = this.state.displayInfoCards;
-    let cardClass1 = classNames('text-center', styles['delay-1'], styles['info-card'], (showCards ? styles['show-card'] : ''));
-    let cardClass2 = classNames('text-center', styles['delay-2'], styles['info-card'], (showCards ? styles['show-card'] : ''));
-    let cardClass3 = classNames('text-center', styles['delay-3'], styles['info-card'], (showCards ? styles['show-card'] : ''));
-
-    let showAbout = this.state.displayAboutCards;
-    let aboutCardClass = classNames('col-sm-12', styles['about-card'], (showAbout ? styles['fade-in-left'] : ''));
     return (
         <div>
             <div className="row">
@@ -43,67 +19,71 @@ export default class Home extends React.Component {
             </div>
             <div className={'row ' + styles['media-bg']}>
                 <div className="col-sm-12">
-                    <div className={'container ' + styles['card-container']}>
-                        <div className="col-sm-4">
-                            <div className={cardClass1}>
-                                <i className="fa fa-home"></i>
-                                <h2>Residential</h2>
-                                <p>Repairs, Replacements and Upgrades</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-4">
-                            <div className={cardClass2}>
-                                <i className="fa fa-building-o"></i>
-                                <h2>Commercial</h2>
-                                <p>High quality detail with professional results</p>
-                            </div>
-                        </div>
-                        <div className="col-sm-4">
-                            <div className={cardClass3}>
-                                <i className="fa fa-map-marker"></i>
-                                <h2>Local</h2>
-                                <p>Locally owned and proudly serving the Charlottesville area</p>
-                            </div>
+                    <Cards scrollAnimate={100}/>
+                </div>
+                <div className="clearfix"></div>
+                <div className={'container text-center ' + styles['quote-container']}>
+                    <div className="col-sm-12">
+                        <h3>Request a Quote</h3>
+                    </div>
+                    <div className="col-sm-6 col-sm-offset-3">
+                        <div className="input-group">
+                            <input type="email" className="form-control" placeholder="Enter Your Email Address"/>
+                            <span className="input-group-btn">
+                                <button className="btn btn-default" type="button">Submit</button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={'row ' + styles['alt-bg']}>
                 <div className="col-sm-12">
-                    <div className="container">
+                    <div className={'container ' + styles['info-card-container']}>
                         <div className="row">
-                            <div className="col-sm-12 text-center">
-                                <h1>About Rivanna Wood Floors</h1>
-                            </div>
-                        </div>
-                        <div className={aboutCardClass}>
-                            <div className="col-sm-8">
-                                <h1>Chris Cempre</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className={styles['about-hero']}>
+                            <div className={styles['about-title']}>
+                                <div className="col-sm-12 text-center">
+                                    <h1>About Rivanna Wood Floors</h1>
                                 </div>
                             </div>
+                        </div>
+                        <div className="row">
+                            <InfoCard scrollAnimate={900}>
+                                <div className="col-sm-4">
+                                    <div className={styles['about-logo']}>
+                                    </div>
+                                </div>
+                                <div className="col-sm-8">
+                                    <h1>Rivanna Wood Floors</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </InfoCard>
+                            <InfoCard scrollAnimate={1200} fadeDirection="fade-in-right">
+                                <div className="col-sm-8">
+                                    <h1>Chris Cempre</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                                <div className="col-sm-4">
+                                    <div className={styles['about-hero']}>
+                                    </div>
+                                </div>
+                            </InfoCard>
                         </div>
                     </div>
                 </div>
             </div>
+            <div className={'row'}>
+                <div className={styles['carousel-container']}>
+                    <Carousel>
+                        <img src={require('../../images/carousel1.jpg')}/>
+                        <img src={require('../../images/carousel2.jpg')}/>
+                        <img src={require('../../images/carousel3.jpg')}/>
+                        <img src={require('../../images/carousel4.jpg')}/>
+                        <img src={require('../../images/carousel5.jpg')}/>
+                        <img src={require('../../images/carousel6.jpg')}/>
+                    </Carousel>
+                </div>
+            </div>
         </div>
     );
-  }
-
-  handleScroll(event) {
-    if (!event) {
-      return;
-    }
-    let scrollTop = event.srcElement.body.scrollTop;
-    let displayInfoCards = scrollTop > this.state.infoAnimate;
-    let displayAboutCards = scrollTop > this.state.aboutAnimate;
-
-    this.setState({
-      displayInfoCards: this.state.displayInfoCards || displayInfoCards,
-      displayAboutCards: this.state.displayAboutCards || displayAboutCards
-    });
   }
 }

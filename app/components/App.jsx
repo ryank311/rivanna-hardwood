@@ -3,6 +3,7 @@ import AltContainer from 'alt/AltContainer';
 import UserStore from 'stores/UserStore';
 import TopicStore from 'stores/TopicStore';
 import Navigation from 'components/common/Navigation';
+import Footer from 'components/common/Footer';
 
 import '../scss/main.scss';
 
@@ -32,6 +33,7 @@ export default class App extends React.Component {
         <div className="container-fluid">
             {this.props.children}
         </div>
+        <Footer/>
       </AltContainer>
     );
   }

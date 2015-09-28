@@ -3,7 +3,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require("webpack");
 
 var assetsPath = path.join(__dirname, "..", "public", "assets");
-var publicPath = "assets/";
+// var publicPath = "assets/";
+var publicPath = "http://localhost:3001/assets/";
 
 var WEBPACK_HOST = "localhost";
 var WEBPACK_PORT = 3001;
@@ -59,7 +60,7 @@ module.exports = [
       // The filename of the entry chunk as relative path inside the output.path directory
       filename: "[name].js",
       // The output path from the view of the Javascript
-      publicPath: publicPath
+      publicPath: publicPath,
 
     },
     module: {
@@ -77,7 +78,7 @@ module.exports = [
       ])
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass', '.css', '.woff2', '.woff', '.eot', '.ttf', '.svg', '.ico'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass', '.css', '.woff2', '.woff', '.eot', '.ttf', '.svg'],
       modulesDirectories: [
         "app", "node_modules"
       ]
@@ -120,7 +121,7 @@ module.exports = [
       ])
     },
     resolve: {
-      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass', '.css', '.woff2', '.woff', '.eot', '.ttf', '.svg', '.ico'],
+      extensions: ['', '.react.js', '.js', '.jsx', '.scss', '.sass', '.css', '.woff2', '.woff', '.eot', '.ttf', '.svg'],
       modulesDirectories: [
         "app", "node_modules"
       ]
