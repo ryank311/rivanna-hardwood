@@ -17,7 +17,7 @@ export default class Home extends React.Component {
                     </div>
                 </div>
             </div>
-            <div className={'row ' + styles['media-bg']}>
+            <div className={'row ' + styles['hero-bg']}>
                 <div className="col-sm-12">
                     <Cards scrollAnimate={100}/>
                 </div>

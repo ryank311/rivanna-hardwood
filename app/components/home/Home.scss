@@ -3,7 +3,7 @@
  Style Guide Lines. Remove if you prefer your own library
  */
 .home-logo-container {
-    padding: 6em 0;
+    padding: 8em 0;
     .home-logo {
         background: url('../../images/logo-transparent.png') no-repeat center;
         background-size: contain;
@@ -12,12 +12,22 @@
     }
 }
 
-.media-bg {
+.hero-bg {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background: url('../../images/home-bg.jpg') no-repeat center;
     background-size: cover;
     height: 50em;
+
+    button {
+        background-color: #456AA2;
+        color: #fff;
+
+        &:hover, &:focus, &:active {
+            background-color: darken(#456AA2, 20%);
+            color: #fff;
+        }
+    }
 }
 
 .quote-container {

@@ -16,13 +16,4 @@ i {
     color: $primary;
 }
 
-button {
-    background-color: #456AA2;
-    color: #fff;
-
-    &:hover, &:focus, &:active {
-        background-color: darken(#456AA2, 20%);
-        color: #fff;
-    }
-}
 
