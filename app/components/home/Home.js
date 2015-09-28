@@ -53,13 +53,13 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-8">
-                                    <h1>Rivanna Wood Floors</h1>
+                                    <h2>Rivanna Wood Floors</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
                             </InfoCard>
                             <InfoCard scrollAnimate={1200} fadeDirection="fade-in-right">
                                 <div className="col-sm-8">
-                                    <h1>Chris Cempre</h1>
+                                    <h2>Chris Cempre</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
                                 <div className="col-sm-4">
@@ -73,6 +73,9 @@ export default class Home extends React.Component {
             </div>
             <div className={'row'}>
                 <div className={styles['carousel-container']}>
+                    <div className="text-center">
+                        <h1>Recent Installations</h1>
+                    </div>
                     <Carousel>
                         <img src={require('../../images/carousel1.jpg')}/>
                         <img src={require('../../images/carousel2.jpg')}/>

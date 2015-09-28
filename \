@@ -34,7 +34,7 @@
 
     h1 {
         font-size: 3em;
-        color: #3a3b3c;
+        color: #32323a;
     }
 }
 
@@ -51,26 +51,16 @@
 }
 
 .alt-bg {
-    background: url('../../images/agsquare.png') repeat;
+    background: url('../../images/whitewall_3.png') repeat;
 }
 
 .carousel-container {
-    padding: 4em 0 8em 0;
-    border-top: 1px solid #ccc;
-    background: url('../../images/wood_1.png') repeat;
-
-    h1 {
-        color: #fff;
-        margin-bottom: 2em;
-    }
-
+    padding: 4em 0;
+    border-top: 1px solid #ddd;
     img {
-        background-color: #fff;
-        padding: 4em;
         margin-left: auto;
         margin-right: auto;
         width: auto !important;
-        max-height: 50em;
+        max-height: 40em;
     }
-
 }
