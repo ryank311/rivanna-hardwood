@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from 'scss/components/_about';
+import styles from './Residential.scss';
 
-export default class About extends React.Component {
+export default class Residential extends React.Component {
   render() {
     return (
       <div className={styles.about}>
