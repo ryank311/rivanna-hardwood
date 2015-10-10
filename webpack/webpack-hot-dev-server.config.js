@@ -3,6 +3,9 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require("webpack");
 
 var assetsPath = path.join(__dirname, "..", "public", "assets");
+console.log('Directory Name: ' + __dirname);
+var appPath = path.join(__dirname, "..", "app");
+var modulesPath = path.resolve(__dirname, '../node_modules');
 // var publicPath = "assets/";
 var publicPath = "http://localhost:3001/assets/";
 
@@ -11,17 +14,13 @@ var WEBPACK_PORT = 3001;
 
 var commonLoaders = [
   {
-    /*
-     * TC39 categorises proposals for babel in 4 stages
-     * Read more http://babeljs.io/docs/usage/experimental/
-     */
-    test: /\.js$|\.jsx$/,
+    test: /\.jsx?$/,
     loaders: ["react-hot", "babel-loader?stage=0"],
     include: path.join(__dirname, "..", "app")
   },
   { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp)(\?.*)?$/, loader: "url-loader" },
-  { test: /\.html$/, loader: "html-loader" },
-  { test: /\.css$/, loader: 'style!css?'}
+  { test: /\.css$/, loader: 'style!css?', include: [appPath, modulesPath]},
+  { test: /\.html$/, loader: "html-loader" }
 ];
 
 module.exports = [
@@ -60,20 +59,18 @@ module.exports = [
       // The filename of the entry chunk as relative path inside the output.path directory
       filename: "[name].js",
       // The output path from the view of the Javascript
-      publicPath: publicPath,
-
+      publicPath: publicPath
     },
     module: {
       preLoaders: [{
-        test: /\.js$|\.jsx$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ["eslint"]
       }],
       loaders: commonLoaders.concat([
           { test: /\.scss$/,
-            loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]' +
-              '&sourceMap!sass?sourceMap&outputStyle=expanded' +
-              '&includePaths[]=' + (path.resolve(__dirname, '../node_modules'))
+            loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]!sass?sourceMap&outputStyle=expanded',
+            include: [appPath, modulesPath]
           }
       ])
     },
@@ -84,13 +81,13 @@ module.exports = [
       ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
             "window.jQuery": "jquery"
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
     ]
   }, {
     // The configuration for the server-side rendering
@@ -114,9 +111,8 @@ module.exports = [
     module: {
       loaders: commonLoaders.concat([
           { test: /\.scss$/,
-            loader: 'css/locals?module&localIdentName=[local]__[hash:base64:5]' +
-              '&sourceMap!sass?sourceMap&outputStyle=expanded' +
-              '&includePaths[]=' + (path.resolve(__dirname, '../node_modules'))
+            loader: 'css/locals?module&localIdentName=[local]__[hash:base64:5]!sass',
+            include: [appPath, modulesPath]
           }
       ])
     },
@@ -125,6 +121,14 @@ module.exports = [
       modulesDirectories: [
         "app", "node_modules"
       ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        }),
+        new webpack.NoErrorsPlugin()
+    ]
   }
 ];

@@ -7,6 +7,11 @@ import alt from 'altInstance';
 import routes from 'routes.js';
 import html from 'base.html';
 
+// import 'jquery';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
+
 /*
  * @param {AltObject} an instance of the Alt object
  * @param {ReactObject} routes specified in react-router

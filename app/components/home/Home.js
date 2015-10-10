@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousel from 'nuka-carousel';
 import Cards from './Cards.js';
 import InfoCard from './InfoCard.js';
 import styles from './Home.scss';
@@ -69,21 +68,6 @@ export default class Home extends React.Component {
                             </InfoCard>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className={'row'}>
-                <div className={styles['carousel-container']}>
-                    <div className="text-center">
-                        <h1>Recent Installations</h1>
-                    </div>
-                    <Carousel>
-                        <img src={require('../../images/carousel1.jpg')}/>
-                        <img src={require('../../images/carousel2.jpg')}/>
-                        <img src={require('../../images/carousel3.jpg')}/>
-                        <img src={require('../../images/carousel4.jpg')}/>
-                        <img src={require('../../images/carousel5.jpg')}/>
-                        <img src={require('../../images/carousel6.jpg')}/>
-                    </Carousel>
                 </div>
             </div>
         </div>

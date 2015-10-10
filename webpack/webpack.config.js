@@ -4,36 +4,34 @@ var webpack = require("webpack");
 
 var assetsPath = path.join(__dirname, "..", "public", "assets");
 var publicPath = "assets/";
+var appPath = path.join(__dirname, "..", "app");
+var modulesPath = path.resolve(__dirname, '../node_modules');
 
 var commonLoaders = [
   {
-    /*
-     * TC39 categorises proposals for babel in 4 stages
-     * Read more http://babeljs.io/docs/usage/experimental/
-     */
     test: /\.js$|\.jsx$/,
     loader: "babel-loader?stage=0",
-    include: path.join(__dirname, "..",  "app")
+    include: appPath
   },
   { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(\?.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.css$/, loader: 'style!css?'},
   { test: /\.scss$/,
     loader: ExtractTextPlugin.extract('style', 'css?module' +
-      '&sourceMap!sass?sourceMap&outputStyle=expanded' +
-      '&includePaths[]=' + (path.resolve(__dirname, '../node_modules')))
+      '&sourceMap!sass?sourceMap&outputStyle=expanded'),
+    include: [appPath, modulesPath]
   }
 ];
 
 var commonPlugins = [
     // extract inline css from modules into separate files
-    new ExtractTextPlugin("styles/main.css"),
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
         "window.jQuery": "jquery"
-    })
+    }),
+    new ExtractTextPlugin("styles/main.css"),
+    new webpack.optimize.UglifyJsPlugin()
 ];
 
 module.exports = [
@@ -75,7 +73,7 @@ module.exports = [
     devtool: "source-map",
     module: {
       preLoaders: [{
-        test: /\.js$|\.jsx$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ["eslint"]
       }],
