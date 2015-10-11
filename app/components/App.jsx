@@ -24,12 +24,13 @@ import '../scss/main.scss';
  */
 export default class App extends React.Component {
   render() {
+    let currentPath = this.props.location ? this.props.location.pathname : '';
     return (
       <AltContainer stores={{
         UserStore: UserStore,
         TopicStore: TopicStore
       }}>
-        <Navigation />
+        <Navigation currentPath={currentPath}/>
         <div className="container-fluid">
             {this.props.children}
         </div>
@@ -39,4 +40,8 @@ export default class App extends React.Component {
   }
 }
 
-App.propTypes = { children: React.PropTypes.object };
+App.propTypes = {
+    children: React.PropTypes.object,
+    location: React.PropTypes.object,
+    'location.pathname': React.PropTypes.string
+};

@@ -1,5 +1,22 @@
-
 .navbar {
     background-color: #fff;
-    border: none;
+}
+
+.navbar-brand {
+    img {
+        width: 2.5em;
+        height: 2.5em;
+        margin: 0.5em;
+    }
+}
+
+.homepage {
+    .navbar-brand {
+        opacity: 0;
+        transition: all 0.3s ease-in;
+
+        &.show {
+            opacity: 1;
+        }
+    }
 }

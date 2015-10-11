@@ -47,7 +47,7 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "font-awesome": "^4.4.0",
-    "history": "^1.11.0",
+    "history": "^1.12.4",
     "html-loader": "^0.3.0",
     "http-proxy": "^1.11.1",
     "immutable": "^3.7.4",

@@ -30,7 +30,7 @@ var commonPlugins = [
         jQuery: "jquery",
         "window.jQuery": "jquery"
     }),
-    new ExtractTextPlugin("styles/main.css"),
+    new ExtractTextPlugin("styles.css"),
     new webpack.optimize.UglifyJsPlugin()
 ];
 

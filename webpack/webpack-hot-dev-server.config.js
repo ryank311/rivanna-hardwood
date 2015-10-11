@@ -69,7 +69,7 @@ module.exports = [
       }],
       loaders: commonLoaders.concat([
           { test: /\.scss$/,
-            loader: 'style!css?module&localIdentName=[local]__[hash:base64:5]!sass?sourceMap&outputStyle=expanded',
+            loader: 'style!css?module&localIdentName=[name]__[local]__[hash:base64:5]!sass?sourceMap&outputStyle=expanded',
             include: [appPath, modulesPath]
           }
       ])
@@ -111,7 +111,7 @@ module.exports = [
     module: {
       loaders: commonLoaders.concat([
           { test: /\.scss$/,
-            loader: 'css/locals?module&localIdentName=[local]__[hash:base64:5]!sass',
+            loader: 'css/locals?module&localIdentName=[name]__[local]__[hash:base64:5]!sass',
             include: [appPath, modulesPath]
           }
       ])
