@@ -33,6 +33,7 @@ export default class InfoCard extends React.Component {
     return (
         <div className={aboutCardClass}>
             {this.props.children}
+            <div className="clearfix"></div>
         </div>
     );
   }

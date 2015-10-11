@@ -3,10 +3,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require("webpack");
 
 var assetsPath = path.join(__dirname, "..", "public", "assets");
-console.log('Directory Name: ' + __dirname);
 var appPath = path.join(__dirname, "..", "app");
 var modulesPath = path.resolve(__dirname, '../node_modules');
-// var publicPath = "assets/";
 var publicPath = "http://localhost:3001/assets/";
 
 var WEBPACK_HOST = "localhost";
@@ -16,7 +14,7 @@ var commonLoaders = [
   {
     test: /\.jsx?$/,
     loaders: ["react-hot", "babel-loader?stage=0"],
-    include: path.join(__dirname, "..", "app")
+    include: appPath 
   },
   { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
   { test: /\.css$/, loader: 'style!css?', include: [appPath, modulesPath]},

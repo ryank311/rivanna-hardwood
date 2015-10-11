@@ -1,13 +1,52 @@
 import React from 'react';
+import InfoCard from '../common/InfoCard.js';
 
-import styles from './Contact.scss';
+import './Contact.scss';
 
 export default class Contact extends React.Component {
   render() {
     return (
-      <div className={styles.about}>
-        <h1 className={styles.about__header}>About Ninja Ocean</h1>
-        <p className={styles.about__description}>Ninja Ocean is comprised of a team of passionate developers, hackers & scientists, aimed to do good.</p>
+      <div className="contact-container">
+        <div className="row">
+            <div className="col-sm-12">
+                <div className="logo-container">
+                    <div className="logo-no-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="row">
+            <div className="alt-bg">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-8 col-sm-offset-2 text-center">
+                            <h1>Contact Us</h1>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <InfoCard scrollAnimate={0}>
+                                <div className="col-xs-3 text-center">
+                                    <i className="fa fa-envelope-square fa-4x"></i>
+                                </div>
+                                <div className="col-xs-9">
+                                    <h2><a href="mailto:chris.cempre@rivannawoodfloors.com">Chris.Cempre@RivannaWoodFloors.com</a></h2>
+                                </div>
+                            </InfoCard>
+                            <InfoCard scrollAnimate={0} fadeDirection="fade-in-right">
+                                <div className="col-xs-3 text-center">
+                                    <i className="fa fa-phone-square fa-4x"></i>
+                                </div>
+                                <div className="col-xs-9">
+                                    <h2><a href="tel:434-997-0716">(434) 987-0716</a></h2>
+                                </div>
+                            </InfoCard>
+                        </div>
+                    </div>
+                </div>
+                <div className="clearfix"></div>
+            </div>
+        </div>
       </div>
     );
   }
