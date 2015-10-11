@@ -15,7 +15,7 @@ var commonLoaders = [
   },
   { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(\?.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
-  { test: /\.css$/, loader: 'style!css?'},
+  { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')},
   { test: /\.scss$/,
     loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap&outputStyle=expanded')
     include: [appPath, modulesPath]
@@ -29,8 +29,8 @@ var commonPlugins = [
         jQuery: "jquery",
         "window.jQuery": "jquery"
     }),
-    new ExtractTextPlugin("styles/main.css"),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin("styles/main.css")
 ];
 
 module.exports = [
