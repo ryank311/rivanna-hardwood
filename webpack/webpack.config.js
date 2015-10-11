@@ -17,7 +17,7 @@ var commonLoaders = [
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')},
   { test: /\.scss$/,
-    loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap&outputStyle=expanded')
+    loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap&outputStyle=expanded'),
     include: [appPath, modulesPath]
   }
 ];
