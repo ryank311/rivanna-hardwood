@@ -19,13 +19,21 @@
     background-size: cover;
     height: 50em;
 
-    button {
-        background-color: #456AA2;
-        color: #fff;
-
-        &:hover, &:focus, &:active {
-            background-color: darken(#456AA2, 20%);
+    .quote-request {
+        input {
+            height: 4em;
+            padding-left: 1em;
+        }
+        button {
+            padding: 0 1em;
+            height: 4em;
+            background-color: #456AA2;
             color: #fff;
+
+            &:hover, &:focus, &:active {
+                background-color: darken(#456AA2, 20%);
+                color: #fff;
+            }
         }
     }
 }

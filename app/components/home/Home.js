@@ -2,10 +2,12 @@ import React from 'react';
 import Cards from './Cards.js';
 import InfoCard from './InfoCard.js';
 import styles from './Home.scss';
+import classNames from 'classnames';
 
 export default class Home extends React.Component {
 
   render() {
+    let inputGroupContainer = classNames('input-group', styles['quote-request']);
     return (
         <div>
             <div className="row">
@@ -23,10 +25,10 @@ export default class Home extends React.Component {
                 <div className="clearfix"></div>
                 <div className={'container text-center ' + styles['quote-container']}>
                     <div className="col-sm-12">
-                        <h3>Request a Quote</h3>
+                        <h3>Request a Consultation</h3>
                     </div>
                     <div className="col-sm-6 col-sm-offset-3">
-                        <div className="input-group">
+                        <div className={inputGroupContainer}>
                             <input type="email" className="form-control" placeholder="Enter Your Email Address"/>
                             <span className="input-group-btn">
                                 <button className="btn btn-default" type="button">Submit</button>
