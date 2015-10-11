@@ -1,6 +1,6 @@
 import React from 'react';
 import Cards from './Cards.js';
-import InfoCard from './InfoCard.js';
+import InfoCard from '../common/InfoCard.js';
 import './Home.scss';
 import classNames from 'classnames';
 

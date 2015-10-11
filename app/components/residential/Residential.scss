@@ -1,22 +1,47 @@
-.about {
+.residential-container {
+    .logo-container {
+        padding: 8em 0;
+        .logo-no-icon {
+            background: url('../../images/logo-no-icon.png') no-repeat center;
+            background-size: contain;
+            height: 11.5em;
+            max-height: 30vh;
+        }
+    }
+    .container {
+        padding-top: 2em;
+        padding-bottom: 4em;
+    }
+    .alt-bg {
+        h1 {
+            color: #456AA2;
+            display: inline-block;
+            font-size: 3em;
+        }
+    }
+    .about-card {
+        .fa {
+            font-size: 8em;
+            margin-top: 0.2em;
+        }
+    }
+    .btn {
+        min-width: 10em;
+    }
+    .form-title {
+        margin-bottom: 2em;
+    }
 
-	padding: 0 48px;
-	padding: 0 3.32871010721496vw;
+    .carousel-container {
+        background: url('../../images/wood_1.png') repeat;
 
-	// .about__header
-	&__header {
-		
-		font-size: 80.9086380004883px;
-		font-size: 5.61086252235879vw;
-
-	}
-
-	// .about__description
-	&__description {
-		
-		font-size: 25.59995985031128px;
-		font-size: 1.77530927287559vw;
-
-	}
-
+        img {
+            background-color: #fff;
+            padding: 4em;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto !important;
+            max-height: 50em;
+        }
+    }
 }

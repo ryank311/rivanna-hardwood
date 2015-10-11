@@ -13,7 +13,7 @@ var commonLoaders = [
     loader: "babel-loader?stage=0",
     include: appPath
   },
-  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp)(\?.*)?$/, loader: "url-loader" },
+  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')},
   { test: /\.scss$/,

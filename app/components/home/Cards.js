@@ -29,24 +29,29 @@ export default class Cards extends React.Component {
 
     return (
         <div className="container card-container">
+            <div className="col-sm-12 text-center">
+                <h1 className="card-container-title">
+                    Rivanna Wood Floors Serves You
+                </h1>
+            </div>
             <div className="col-sm-4">
                 <div className={cardClass1}>
                     <i className="fa fa-home"></i>
-                    <h2>Residential</h2>
+                    <h2>Your Home</h2>
                     <p>Repairs, Replacements and Upgrades</p>
                 </div>
             </div>
             <div className="col-sm-4">
                 <div className={cardClass2}>
                     <i className="fa fa-building-o"></i>
-                    <h2>Commercial</h2>
+                    <h2>Your Business</h2>
                     <p>High quality detail with professional results</p>
                 </div>
             </div>
             <div className="col-sm-4">
                 <div className={cardClass3}>
                     <i className="fa fa-map-marker"></i>
-                    <h2>Local</h2>
+                    <h2>Your Community</h2>
                     <p>Locally owned and proudly serving the Charlottesville area</p>
                 </div>
             </div>

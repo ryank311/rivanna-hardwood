@@ -17,3 +17,20 @@ i {
 }
 
 
+input.form-control, textarea.form-control {
+    height: 4em;
+    padding-left: 1em;
+    margin-bottom: 1em;
+}
+
+button.btn {
+    padding: 0 1em;
+    height: 4em;
+    background-color: #456AA2;
+    color: #fff;
+
+    &:hover, &:focus, &:active {
+        background-color: darken(#456AA2, 20%);
+        color: #fff;
+    }
+}

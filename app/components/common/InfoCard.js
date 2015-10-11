@@ -14,7 +14,11 @@ export default class InfoCard extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.state.scrollListener);
+    if (this.props.scrollAnimate === 0) {
+      this.setState({ displayCard: true });
+    } else {
+      window.addEventListener('scroll', this.state.scrollListener);
+    }
   }
 
   componentWillUnmount() {
@@ -39,10 +43,12 @@ export default class InfoCard extends React.Component {
     }
     let scrollTop = event.srcElement.body.scrollTop;
     let displayCard = scrollTop > this.props.scrollAnimate;
-
-    this.setState({
-      displayCard: this.state.displayCard || displayCard
-    });
+    displayCard = this.state.displayCard || displayCard;
+    if (this.state.displayCard !== displayCard) {
+      this.setState({
+        displayCard
+      });
+    }
   }
 }
 
