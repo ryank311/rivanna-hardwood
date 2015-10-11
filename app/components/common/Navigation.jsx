@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 
-import styles from './Navigation.scss';
+import './Navigation.scss';
 import brandLogo from '../../images/icon.png';
 
 export default class Navigation extends React.Component {
@@ -31,8 +31,8 @@ export default class Navigation extends React.Component {
 
   render() {
     let isHomepage = this.props.currentPath === '/';
-    let navClass = classNames('navbar', 'navbar-fixed-top', styles.navbar, isHomepage ? styles.homepage : '');
-    let brandClass = classNames(styles['navbar-brand'], this.state.displayIcon ? styles.show : '');
+    let navClass = classNames('navbar', 'navbar-fixed-top', 'rivanna-nav', isHomepage ? 'homepage' : '');
+    let brandClass = classNames('navbar-brand', this.state.displayIcon ? 'show' : '');
     return (
       <nav className={navClass} role="navigation">
         <div className="container-fluid">

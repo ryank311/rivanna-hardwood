@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './InfoCard.scss';
+import './InfoCard.scss';
 
 export default class InfoCard extends React.Component {
 
@@ -24,7 +24,7 @@ export default class InfoCard extends React.Component {
   render() {
     let showCard = this.state.displayCard;
     let fadeDirection = this.props.fadeDirection || 'fade-in-left';
-    let aboutCardClass = classNames('col-sm-12', styles['about-card'], (showCard ? '' : styles[fadeDirection]));
+    let aboutCardClass = classNames('col-sm-12', 'about-card', (showCard ? '' : fadeDirection));
 
     return (
         <div className={aboutCardClass}>

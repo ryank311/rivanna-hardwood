@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Footer.scss';
+import './Footer.scss';
 
 export default class Footer extends React.Component {
 
   render() {
     return (
-        <footer className={styles.footer}>
+        <footer className="footer">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-sm-12 text-center">

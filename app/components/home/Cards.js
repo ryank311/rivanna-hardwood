@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './Cards.scss';
+import './Cards.scss';
 
 export default class Cards extends React.Component {
 
@@ -23,12 +23,12 @@ export default class Cards extends React.Component {
 
   render() {
     let showCards = this.state.displayInfoCards;
-    let cardClass1 = classNames('text-center', styles['delay-1'], styles['info-card'], (showCards ? styles['show-card'] : ''));
-    let cardClass2 = classNames('text-center', styles['delay-2'], styles['info-card'], (showCards ? styles['show-card'] : ''));
-    let cardClass3 = classNames('text-center', styles['delay-3'], styles['info-card'], (showCards ? styles['show-card'] : ''));
+    let cardClass1 = classNames('text-center', 'delay-1', 'info-card', (showCards ? 'show-card' : ''));
+    let cardClass2 = classNames('text-center', 'delay-2', 'info-card', (showCards ? 'show-card' : ''));
+    let cardClass3 = classNames('text-center', 'delay-3', 'info-card', (showCards ? 'show-card' : ''));
 
     return (
-        <div className={'container ' + styles['card-container']}>
+        <div className="container card-container">
             <div className="col-sm-4">
                 <div className={cardClass1}>
                     <i className="fa fa-home"></i>

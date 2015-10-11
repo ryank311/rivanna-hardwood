@@ -1,22 +1,33 @@
-.navbar {
-    background-color: #fff;
-}
-
-.navbar-brand {
-    img {
-        width: 2.5em;
-        height: 2.5em;
-        margin: 0.5em;
-    }
-}
-
-.homepage {
-    .navbar-brand {
-        opacity: 0;
-        transition: all 0.3s ease-in;
-
-        &.show {
-            opacity: 1;
+.rivanna-nav {
+    &.navbar {
+        background-color: #fff;
+        height: 4em;
+        .navbar-collapse {
+            background: #fff;
         }
     }
+
+    .navbar-brand {
+        padding: 0;
+        img {
+            width: 2em;
+            height: 2em;
+            margin: 0.5em;
+        }
+    }
+
+    &.homepage {
+        .navbar-brand {
+            opacity: 0;
+            transition: all 0.3s ease-in;
+
+            &.show {
+                opacity: 1;
+            }
+        }
+    }
+    .icon-bar {
+        background: #456AA2;
+    }
 }
+
