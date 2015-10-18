@@ -10,7 +10,7 @@ import Contact from 'components/contact/Contact.js';
 export default (
   <Route component={App}>
     <Route path="/" component={Home}/>
-    <Route path="residential" component={Residential} />
+    <Route path="services" component={Residential} />
     <Route path="commercial" component={Commercial} />
     <Route path="contact" component={Contact} />
   </Route>

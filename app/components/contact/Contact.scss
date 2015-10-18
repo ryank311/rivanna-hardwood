@@ -14,5 +14,10 @@
         .fa {
             margin-top: 0;
         }
+        @media screen and (max-width: 860px) {
+            h2 {
+                font-size: 1.2em;
+            }
+        }
     }
 }

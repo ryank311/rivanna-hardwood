@@ -18,8 +18,54 @@
             padding: 4em;
             margin-left: auto;
             margin-right: auto;
-            width: auto !important;
+            width: auto;
+            max-width: 90%;
             max-height: 50em;
+            @media screen and (max-width: 800px) {
+                padding: 1em;
+            }
         }
+        .slick-prev {
+            left: -10px;
+        }
+        .slick-next {
+            right: -10px;
+        }
+        .slick-dots {
+            li {
+                &.slick-active {
+                    button:before {
+                        opacity: 1;
+                        color: #456AA2;
+                    }
+                }
+
+                button:before {
+                    color: #fafafa;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+
+    .example1-hero {
+        margin-top: 1em;
+        background: url('../../images/example1.png') no-repeat center;
+        background-size: contain;
+        height: 16em;
+    }
+
+    .example2-hero {
+        margin-top: 1em;
+        background: url('../../images/example2.png') no-repeat center;
+        background-size: contain;
+        height: 16em;
+    }
+
+    .example3-hero {
+        margin-top: 1em;
+        background: url('../../images/example3.png') no-repeat center;
+        background-size: contain;
+        height: 16em;
     }
 }
