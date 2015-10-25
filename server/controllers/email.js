@@ -7,10 +7,8 @@ var quickSend = path.join(__dirname, '..', 'templates', 'quick-send');
 
 var _ = require('lodash');
 require('jade');
-
-console.log('Full Message path: ' + fullMessage);
-console.log('Quick Send path: ' + quickSend);
-
+var quickSendTemplate = new EmailTemplate(quickSend);
+var fullMessageTemplate = new EmailTemplate(fullMessage);
 
 /**
  * Send the short email
@@ -18,16 +16,18 @@ console.log('Quick Send path: ' + quickSend);
 exports.sendShort = function(req, res) {
   // TODO validate request
   var emailData = {};
-  var quickSendTemplate = new EmailTemplate(quickSend);
   quickSendTemplate.render(emailData).then(function(results) {
-    console.log('Message template: ' + JSON.stringify(results));
     var emailRequest = {
       to: req.body.email,
       from: 'chris.cempre@rivannawoodfloors.com',
-      subject: 'Consultation Request Rivanna Wood Floors',
-      text: results.html
+      replyTo: 'chris.cempre@rivannawoodfloors.com',
+      bcc: 'chris.cempre@rivannawoodfloors.com',
+      fromName: 'Rivanna Wood Floors LLC.',
+      subject: 'Rivanna Wood Floors Consultation Request',
+      text: results.text,
+      html: results.html
     };
-    console.log('Sending Email: ' + JSON.stringify(emailRequest));
+    console.log('Email request: { ' + results.html);
     sendgrid.send(emailRequest, function(err, json) {
       if (err) { return console.error(err); }
       console.log(json);
@@ -47,17 +47,18 @@ exports.sendLong = function(req, res) {
     phone: req.body.phone,
     message: req.body.message
   };
-  console.log('Long Send email request: ' + JSON.stringify(emailData));
-  var fullMessageTemplate = new EmailTemplate(fullMessage);
+  console.log('Long Send email request: {' + JSON.stringify(emailData));
   fullMessageTemplate.render(emailData).then(function(results) {
-    console.log('Message template: ' + JSON.stringify(results));
     var emailRequest = {
       to: req.body.email,
       from: 'chris.cempre@rivannawoodfloors.com',
-      subject: 'Consultation Request Rivanna Wood Floors',
-      text: results.html
+      replyTo: 'chris.cempre@rivannawoodfloors.com',
+      bcc: 'chris.cempre@rivannawoodfloors.com',
+      fromName: 'Rivanna Wood Floors LLC.',
+      subject: 'Rivanna Wood Floors Consultation Request',
+      text: results.text,
+      html: results.html
     };
-    console.log('Sending Email: ' + emailRequest);
     sendgrid.send(emailRequest, function(err, json) {
       if (err) { return console.error(err); }
       console.log(json);
