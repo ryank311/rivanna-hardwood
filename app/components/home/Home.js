@@ -3,8 +3,13 @@ import Cards from './Cards.js';
 import InfoCard from '../common/InfoCard.js';
 import './Home.scss';
 import classNames from 'classnames';
+import ConsultationActions from '../../actions/ConsultationActions.js';
 
 export default class Home extends React.Component {
+  constructor(params) {
+    super(params);
+    this.state = {email: null};
+  }
 
   render() {
     let inputGroupContainer = classNames('input-group', 'quote-request');
@@ -29,9 +34,9 @@ export default class Home extends React.Component {
                     </div>
                     <div className="col-sm-6 col-sm-offset-3">
                         <div className={inputGroupContainer}>
-                            <input type="email" className="form-control" placeholder="Enter Your Email Address"/>
+                            <input type="email" className="form-control" placeholder="Enter Your Email Address" onChange={this.handleEmailChange.bind(this)}/>
                             <span className="input-group-btn">
-                                <button className="btn btn-default" type="button">Submit</button>
+                                <button className="btn btn-default" type="button" onClick={this.handleEmailSubmit.bind(this)}>Submit</button>
                             </span>
                         </div>
                     </div>
@@ -92,4 +97,16 @@ export default class Home extends React.Component {
         </div>
     );
   }
+
+  handleEmailChange(event) {
+    this.setState({email: event.target.value});
+  }
+
+  handleEmailSubmit() {
+    if (!this.state.email || this.state.email === '') {
+      return;
+    }
+    ConsultationActions.registerEmail(this.state.email);
+  }
+
 }
