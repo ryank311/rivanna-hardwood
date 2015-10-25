@@ -35,10 +35,10 @@ exports.sendShort = function(req, res) {
       ]
     };
     console.log('Email Consultation Request sending to: ' + req.body.email);
-    sendgrid.send(emailRequest, function(err, json) {
-      if (err) { return console.error(err); }
-      console.log(json);
-    });
+    //sendgrid.send(emailRequest, function(err, json) {
+    //  if (err) { return console.error(err); }
+    //  console.log(json);
+    //});
   }).catch(function(err) {
     console.log('Errors: ' + JSON.stringify(err));
   });

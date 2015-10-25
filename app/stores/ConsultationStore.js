@@ -5,34 +5,36 @@ import ConsultationSource from '../sources/ConsultationSource';
 
 @datasource(ConsultationSource)
 class ConsultationStore {
+  constructor() {
+    this.state = {};
+    this.bindActions(ConsultationActions);
+  }
 
-    constructor() {
-      this.bindActions(ConsultationActions);
-    }
+  onRegisterEmail(email) {
+    this.setState({emailSentSuccess: false, emailSentFailure: false});
+    this.getInstance().registerEmail({email: email});
+  }
 
-    onRegisterEmail(email) {
-      this.getInstance().registerEmail({email: email});
-    }
+  onRegisterEmailSuccess() {
+    this.setState({emailSentSuccess: true, emailSentFailure: false});
+  }
 
-    onRegisterEmailSuccess(response) {
-      console.log(response);
-    }
+  onRegisterEmailFailure() {
+    this.setState({emailSentSuccess: false, emailSentFailure: true});
+  }
 
-    onRegisterEmailFailure(response) {
-      console.log(response);
-    }
+  onRequestConsultation(message) {
+    this.setState({emailSentSuccess: false, emailSentFailure: false});
+    this.getInstance().requestConsultation(message);
+  }
 
-    onRequestConsultation(message) {
-      this.getInstance().requestConsultation(message);
-    }
+  onRequestConsultationSuccess() {
+    this.setState({emailSentSuccess: true, emailSentFailure: false});
+  }
 
-    onRequestConsultationSuccess(response) {
-      console.log(response);
-    }
-
-    onRequestConsultationFailure(response) {
-      console.log(response);
-    }
+  onRequestConsultationFailure() {
+    this.setState({emailSentSuccess: false, emailSentFailure: true});
+  }
 }
 
 // Export our newly created Store

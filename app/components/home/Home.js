@@ -1,14 +1,34 @@
 import React from 'react';
+import classNames from 'classnames';
+import swal from 'imports?window=>{}!sweetalert';
+
+import ConsultationActions from '../../actions/ConsultationActions.js';
 import Cards from './Cards.js';
 import InfoCard from '../common/InfoCard.js';
 import './Home.scss';
-import classNames from 'classnames';
-import ConsultationActions from '../../actions/ConsultationActions.js';
 
 export default class Home extends React.Component {
   constructor(params) {
     super(params);
     this.state = {email: null};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.ConsultationStore.emailSentSuccess) {
+      swal({
+        title: 'Success!',
+        text: 'We\'ve received your request, keep an eye out for our confirmation email.',
+        type: 'success',
+        confirmButtonText: 'Done'
+      });
+    } else if (nextProps.ConsultationStore.emailSentFailure) {
+      swal({
+        title: 'Error!',
+        text: 'Something went wrong while processing your request.  Please try again later.',
+        type: 'error',
+        confirmButtonText: 'Done'
+      });
+    }
   }
 
   render() {
