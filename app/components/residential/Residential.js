@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from 'react-modal';
 import InfoCard from '../common/InfoCard.js';
 import Carousel from '../common/Carousel.js';
 import ConsultationActions from '../../actions/ConsultationActions.js';
@@ -17,6 +18,34 @@ export default class Residential extends React.Component {
   }
 
   render() {
+    let showSuccess = this.props.ConsultationStore.emailSentSuccess;
+    let showError = this.props.ConsultationStore.emailSentFailure;
+    let customStyles = {
+      overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(140, 140, 140, 0.80)',
+        zIndex: 9999
+      },
+      content: {
+        position: 'absolute',
+        maxWidth: '400px',
+        maxHeight: '400px',
+        top: '20%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        border: '1px solid #ccc',
+        background: '#fff',
+        overflow: 'auto',
+        WebkitOverflowScrolling: 'touch',
+        borderRadius: '4px',
+        outline: 'none',
+        padding: '20px'
+      }
+    };
     return (
       <div className="residential-container">
         <div className="row">
@@ -118,6 +147,20 @@ export default class Residential extends React.Component {
                 </div>
             </div>
         </div>
+        <Modal isOpen={showSuccess} onRequestClose={ConsultationActions.resetStatus} style={customStyles}>
+          <div className="text-center">
+            <h1><i className="fa fa-check-circle-o fa-4x"></i></h1>
+            <h1>Success</h1>
+            <p>We received your request.  Check your inbox for a confirmation email.</p>
+          </div>
+        </Modal>
+        <Modal isOpen={showError} onRequestClose={ConsultationActions.resetStatus} style={customStyles}>
+          <div className="text-center">
+            <h1><i className="fa fa-exclamation-triangle fa-4x"></i></h1>
+            <h1>Error</h1>
+            <p>Sorry, something went wrong while processing your request.  Please check your email address and try again later.</p>
+          </div>
+        </Modal>
       </div>
     );
   }
@@ -134,5 +177,10 @@ export default class Residential extends React.Component {
     }
     ConsultationActions.requestConsultation(this.state);
   }
-
 }
+
+Residential.propTypes = {
+  'ConsultationStore': React.PropTypes.object,
+  'ConsultationStore.emailSentSuccess': React.PropTypes.bool,
+  'ConsultationStore.emailSentFailure': React.PropTypes.bool
+};

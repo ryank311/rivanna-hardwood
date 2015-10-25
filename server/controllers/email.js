@@ -35,12 +35,14 @@ exports.sendShort = function(req, res) {
       ]
     };
     console.log('Email Consultation Request sending to: ' + req.body.email);
-    //sendgrid.send(emailRequest, function(err, json) {
-    //  if (err) { return console.error(err); }
-    //  console.log(json);
-    //});
+    sendgrid.send(emailRequest, function(err, json) {
+      if (err) { return console.error(err); }
+      console.log(json);
+    });
+    res.status(200).send('Success');
   }).catch(function(err) {
     console.log('Errors: ' + JSON.stringify(err));
+    res.status(500).send('Error');
   });
 };
 
@@ -70,7 +72,9 @@ exports.sendLong = function(req, res) {
       if (err) { return console.error(err); }
       console.log(json);
     });
+    res.status(200).send('Success');
   }).catch(function(err) {
     console.log('Errors: ' + JSON.stringify(err));
+    res.status(500).send('Error');
   });
 };

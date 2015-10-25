@@ -10,15 +10,15 @@ export default class App extends React.Component {
   render() {
     let currentPath = this.props.location ? this.props.location.pathname : '';
     return (
-      <AltContainer stores={{
-        ConsultationStore: ConsultationStore
-      }}>
-        <Navigation currentPath={currentPath}/>
-        <div className="container-fluid">
-            {this.props.children}
-        </div>
-        <Footer/>
-      </AltContainer>
+      <div className="container-fluid">
+        <AltContainer stores={{
+          ConsultationStore: ConsultationStore
+        }}>
+          <Navigation currentPath={currentPath}/>
+          {this.props.children}
+          <Footer/>
+        </AltContainer>
+      </div>
     );
   }
 }
