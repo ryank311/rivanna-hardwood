@@ -15,7 +15,6 @@ var fullMessageTemplate = new EmailTemplate(fullMessage);
  * Send the short email
  */
 exports.sendShort = function(req, res) {
-  // TODO validate request
   var emailData = {};
   quickSendTemplate.render(emailData).then(function(results) {
     var emailRequest = {
@@ -49,7 +48,6 @@ exports.sendShort = function(req, res) {
  * Send the short email
  */
 exports.sendLong = function(req, res) {
-  // TODO validate request
   var emailData = {
     name: req.body.name,
     phone: req.body.phone,
@@ -68,10 +66,10 @@ exports.sendLong = function(req, res) {
       html: results.html
     };
     console.log('Email Consultation Request sending to: ' + req.body.email);
-    //sendgrid.send(emailRequest, function(err, json) {
-    //  if (err) { return console.error(err); }
-    //  console.log(json);
-    //});
+    sendgrid.send(emailRequest, function(err, json) {
+      if (err) { return console.error(err); }
+      console.log(json);
+    });
   }).catch(function(err) {
     console.log('Errors: ' + JSON.stringify(err));
   });

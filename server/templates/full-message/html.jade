@@ -14,16 +14,15 @@ html(lang="en")
             tr
               td
                 if name
-                  p Hi = name,
+                  p Hi #{name},
                 else
                   p Hi there,
                 p We received your request for a consultation from Rivanna Wood Floors and will respond to your inquiry within 2 business days.  Thank you for giving us the opportunity to work with you.
                 br
                 if message
-                  p Your Message:
                   p.message= message
                 if phone
-                  p.phone= phone
+                  p.message Please Contact @ #{phone}
                 br
                 p Thanks,
                 p Chris Cempre,

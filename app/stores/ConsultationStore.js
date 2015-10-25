@@ -23,7 +23,7 @@ class ConsultationStore {
     }
 
     onRequestConsultation(message) {
-      this.getInstance().registerEmail(message);
+      this.getInstance().requestConsultation(message);
     }
 
     onRequestConsultationSuccess(response) {

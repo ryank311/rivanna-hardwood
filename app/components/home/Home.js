@@ -62,7 +62,7 @@ export default class Home extends React.Component {
                                 <div className="col-sm-8">
                                     <h2>Rivanna Wood Floors</h2>
                                     <p>
-                                        Rivanna Wood Floors specializes in the installation, sanding, re-finishing, and repairing of any and all species of hardwood flooring.  We provide a top quality service, that is unique because we take every project on as if it were ourtreating each floor like our very own, and considering our clients’ every need.  Our main goal as a company is to go above and beyond our clients’ expectations in their flooring plans.  We use techniques unique to the Charlottesville area to achieve the look that our customers want.  From the lightest to the darkest of colors in the spectrum of staining, dying, and sheen, we work with you to achieve your desired result. Our clients can expect to see a beautiful final product, completed in a timely and efficient manner, and ending with a thorough and detailed cleaning.
+                                        Rivanna Wood Floors specializes in the installation, sanding, re-finishing, and repairing of any and all species of hardwood flooring.  We provide a top quality service that is unique because we take every project on treating each floor like our very own, and considering our clients’ every need.  Our main goal as a company is to go above and beyond our clients’ expectations in their flooring plans.  We use techniques unique to the Charlottesville area to achieve the look that our customers want.  From the lightest to the darkest of colors in the spectrum of staining, dying, and sheen, we work with you to achieve your desired result. Our clients can expect to see a beautiful final product, completed in a timely and efficient manner, and ending with a thorough and detailed cleaning.
                                     </p>
                                 </div>
                             </InfoCard>
@@ -84,7 +84,7 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-8">
-                                    <h2>Established 20015</h2>
+                                    <h2>Established 2015</h2>
                                     <p>
                                         Chris got back into flooring after graduation immediately realizing the demand for his high quality floor work and returning to his true passion.  After finishing a few small projects he began working with Jerry Sikman Hardwood Floors, consecutively maintaining his own side practice.  In July 2015, Chris decided to finally make a decade-long dream come true, and founded Rivanna Wood Floors, LLC.  When Chris isn’t making beautiful hardwood floors, he can be found in the Rivanna River, a river that represents beauty, strength, locality, longevity, life, and evolution, which are all things that Chris feels are important in his hardwood floor work.
                                     </p>
