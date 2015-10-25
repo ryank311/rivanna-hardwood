@@ -4,6 +4,7 @@ var path = require('path');
 
 var fullMessage = path.join(__dirname, '..', 'templates', 'full-message');
 var quickSend = path.join(__dirname, '..', 'templates', 'quick-send');
+var emailIcon = path.join(__dirname, '..', '..', 'app', 'images', 'logo-transparent.png');
 
 var _ = require('lodash');
 require('jade');
@@ -25,9 +26,16 @@ exports.sendShort = function(req, res) {
       fromName: 'Rivanna Wood Floors LLC.',
       subject: 'Rivanna Wood Floors Consultation Request',
       text: results.text,
-      html: results.html
+      html: results.html,
+      files: [
+        {
+          cid: 'rivanna_logo',
+          filename: 'logo-transparent.png',
+          path: emailIcon 
+        }
+      ]
     };
-    console.log('Email request: { ' + results.html);
+    console.log('Email Consultation Request sending to: ' + req.body.email);
     sendgrid.send(emailRequest, function(err, json) {
       if (err) { return console.error(err); }
       console.log(json);
@@ -59,10 +67,11 @@ exports.sendLong = function(req, res) {
       text: results.text,
       html: results.html
     };
-    sendgrid.send(emailRequest, function(err, json) {
-      if (err) { return console.error(err); }
-      console.log(json);
-    });
+    console.log('Email Consultation Request sending to: ' + req.body.email);
+    //sendgrid.send(emailRequest, function(err, json) {
+    //  if (err) { return console.error(err); }
+    //  console.log(json);
+    //});
   }).catch(function(err) {
     console.log('Errors: ' + JSON.stringify(err));
   });

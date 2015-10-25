@@ -1,10 +1,21 @@
 import React from 'react';
 import InfoCard from '../common/InfoCard.js';
 import Carousel from '../common/Carousel.js';
+import ConsultationActions from '../../actions/ConsultationActions.js';
 
 import './Residential.scss';
 
 export default class Residential extends React.Component {
+  constructor(params) {
+    super(params);
+    this.state = {
+      name: null,
+      email: null,
+      phone: null,
+      message: ''
+    };
+  }
+
   render() {
     return (
       <div className="residential-container">
@@ -76,19 +87,19 @@ export default class Residential extends React.Component {
             </div>
             <div className="row">
                 <div className="col-sm-10 col-sm-offset-1">
-                    <input className="form-control" placeholder="Name" type="text"/>
+                    <input name="name" className="form-control" placeholder="Name" type="text" onChange={this.handleChange.bind(this)}/>
                 </div>
                 <div className="col-sm-5 col-sm-offset-1">
-                    <input className="form-control" placeholder="Email Address" type="email"/>
+                    <input name="email" className="form-control" placeholder="Email Address" type="email" onChange={this.handleChange.bind(this)}/>
                 </div>
                 <div className="col-sm-5">
-                    <input className="form-control" placeholder="Phone Number" type="phone"/>
+                    <input name="phone" className="form-control" placeholder="Phone Number" type="phone" onChange={this.handleChange.bind(this)}/>
                 </div>
                 <div className="col-sm-10 col-sm-offset-1">
-                    <textarea className="form-control" placeholder="Message"/>
+                    <textarea name="message" className="form-control" placeholder="Message" onChange={this.handleChange.bind(this)}/>
                 </div>
                 <div className="col-sm-10 col-sm-offset-1 text-center">
-                    <button className="btn btn-primary">Submit</button>
+                    <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
                 </div>
             </div>
             <div className="clearfix"></div>
@@ -110,4 +121,18 @@ export default class Residential extends React.Component {
       </div>
     );
   }
+
+  handleChange(event) {
+    let newState = [];
+    newState[event.target.name] = event.target.value;
+    this.setState(newState);
+  }
+
+  handleSubmit() {
+    if (!this.state.email || this.state.email === '') {
+      return;
+    }
+    ConsultationActions.requestConsultation(this.state);
+  }
+
 }
