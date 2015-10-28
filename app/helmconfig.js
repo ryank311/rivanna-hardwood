@@ -41,7 +41,8 @@ const config = {
     // Tile icon for Win8 (144x144 + tile color)
     { "name": "msapplication-TileImage", "content": largeFavicon },
     { "name": "msapplication-TileColor", "content": "#456AA2" }
-  ]
+  ],
+  title: "Rivanna Wood Floors LLC."
 };
 
 export default config;

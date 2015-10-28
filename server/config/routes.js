@@ -5,8 +5,18 @@ var email = require('../controllers/email');
 var express = require('express');
 var mongoose = require('mongoose');
 var _ = require('lodash');
+var glob = require('glob');
 var Header = require('../../public/assets/header.server');
 var App = require('../../public/assets/app.server');
+
+var appPath = 'app.js';
+var files = glob.sync('**/app.*.js');
+if (files && files.length > 0) {
+  var appJSFile = files[0];
+  appPath = appJSFile.substring( appJSFile.lastIndexOf('/') + 1 );
+  console.log('application js file found at: ' + appPath);
+}
+appPath = '/assets/' + appPath;
 
 module.exports = function(app, passport) {
 
@@ -31,6 +41,8 @@ module.exports = function(app, passport) {
     } else {
       html = html.replace("LINK", Header.link);
     }
+
+    html = html.replace("SOURCE", appPath);
 
     res.contentType = "text/html; charset=utf8";
     res.end(html);
