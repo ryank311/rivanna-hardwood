@@ -62,7 +62,7 @@ export default class Navigation extends React.Component {
     if (!event) {
       return;
     }
-    let scrollTop = event.srcElement.body.scrollTop;
+    let scrollTop = event.target.body.scrollTop;
     let displayIcon = scrollTop > 500;
 
     if (displayIcon !== this.state.displayIcon) {

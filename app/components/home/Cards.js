@@ -63,7 +63,7 @@ export default class Cards extends React.Component {
     if (!event) {
       return;
     }
-    let scrollTop = event.srcElement.body.scrollTop;
+    let scrollTop = event.target.body.scrollTop;
     let displayInfoCards = scrollTop > this.props.scrollAnimate;
 
     this.setState({

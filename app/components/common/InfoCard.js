@@ -42,7 +42,7 @@ export default class InfoCard extends React.Component {
     if (!event) {
       return;
     }
-    let scrollTop = event.srcElement.body.scrollTop;
+    let scrollTop = event.target.body.scrollTop;
     let displayCard = scrollTop > this.props.scrollAnimate;
     displayCard = this.state.displayCard || displayCard;
     if (this.state.displayCard !== displayCard) {
