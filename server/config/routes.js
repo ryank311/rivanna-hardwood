@@ -36,13 +36,17 @@ module.exports = function(app, passport) {
     html = html.replace("TITLE", Header.title)
                 .replace("META", Header.meta);
 
-    if(process.env.NODE_ENV === 'devhotloader') {
+    if(process.env.NODE_ENV === 'development') {
       html = html.replace("LINK", '');
     } else {
       html = html.replace("LINK", Header.link);
     }
 
-    html = html.replace("SOURCE", appPath);
+    if(process.env.NODE_ENV === 'development') {
+      html = html.replace("SOURCE", '/assets/app.js');
+    } else {
+      html = html.replace("SOURCE", appPath);
+    }
 
     res.contentType = "text/html; charset=utf8";
     res.end(html);

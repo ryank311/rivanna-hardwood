@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import classNames from 'classnames';
 
 import './InfoCard.scss';
@@ -42,7 +43,7 @@ export default class InfoCard extends React.Component {
     if (!event) {
       return;
     }
-    let scrollTop = event.target.body.scrollTop;
+    let scrollTop = $(document).scrollTop();
     let displayCard = scrollTop > this.props.scrollAnimate;
     displayCard = this.state.displayCard || displayCard;
     if (this.state.displayCard !== displayCard) {

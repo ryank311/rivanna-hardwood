@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 
@@ -62,7 +63,7 @@ export default class Navigation extends React.Component {
     if (!event) {
       return;
     }
-    let scrollTop = event.target.body.scrollTop;
+    let scrollTop = $(document).scrollTop();
     let displayIcon = scrollTop > 500;
 
     if (displayIcon !== this.state.displayIcon) {

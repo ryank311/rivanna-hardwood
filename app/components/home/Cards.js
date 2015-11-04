@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import classNames from 'classnames';
 
 import './Cards.scss';
@@ -63,7 +64,7 @@ export default class Cards extends React.Component {
     if (!event) {
       return;
     }
-    let scrollTop = event.target.body.scrollTop;
+    let scrollTop = $(document).scrollTop();
     let displayInfoCards = scrollTop > this.props.scrollAnimate;
 
     this.setState({
