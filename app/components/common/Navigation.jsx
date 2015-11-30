@@ -21,6 +21,9 @@ export default class Navigation extends React.Component {
       this.setState({displayIcon: false});
       window.addEventListener('scroll', this.state.scrollListener);
     }
+    $('.nav a').on('click', () => {
+      $('.navbar-toggle').click();
+    });
   }
 
   componentWillUnmount() {

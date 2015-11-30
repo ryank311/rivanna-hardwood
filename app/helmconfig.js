@@ -28,6 +28,9 @@ const config = {
     { "http-equiv": "X-UA-Compatible", "content": "IE=edge" },
     //  Meta descriptions are commonly used on search engine result pages to display preview snippets for a given page.
     { "name": "description", "content": "Rivanna Wood Floors LLC is a local wood flooring specialist that supports residential and commercial businesses in the Rivanna area." },
+    { "name": "og:title", "content": "Rivanna Wood Floors LLC" },
+    { "name": "og:description", "content": "Rivanna Wood Floors LLC is a local wood flooring specialist that supports residential and commercial businesses in the Rivanna area." },
+    { "name": "og:url", "content": "http://www.rivannawoodfloors.com" },
     // Mobile Safari introduced this tag to let web developers control the viewport's size and scale 
     // The width property controls the size of the viewport, the initial-scale property controls 
     // the zoom level when the page is first loaded
@@ -40,7 +43,8 @@ const config = {
     { "name": "apple-mobile-web-app-title", "content": "React Webpack Node" },
     // Tile icon for Win8 (144x144 + tile color)
     { "name": "msapplication-TileImage", "content": largeFavicon },
-    { "name": "msapplication-TileColor", "content": "#456AA2" }
+    { "name": "msapplication-TileColor", "content": "#456AA2" },
+    { "name": "theme-color", "content": "#456AA2" }
   ],
   title: "Rivanna Wood Floors LLC."
 };

@@ -30,11 +30,6 @@ export default class Cards extends React.Component {
 
     return (
         <div className="container card-container">
-            <div className="col-sm-12 text-center">
-                <h1 className="card-container-title">
-                    Rivanna Wood Floors Serves You
-                </h1>
-            </div>
             <div className="col-sm-4">
                 <div className={cardClass1}>
                     <i className="fa fa-home"></i>

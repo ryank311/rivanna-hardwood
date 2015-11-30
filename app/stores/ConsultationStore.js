@@ -8,9 +8,9 @@ class ConsultationStore {
   constructor() {
     this.state = {};
     this.bindActions(ConsultationActions);
-    this.on('error', (error) => {
-      console.log(error);
-    });
+    // this.on('error', (error) => {
+    //   console.log(error);
+    // });
   }
 
   onRegisterEmail(email) {
@@ -18,14 +18,12 @@ class ConsultationStore {
     this.getInstance().registerEmail({email: email});
   }
 
-  onRegisterEmailSuccess(response) {
+  onRegisterEmailSuccess() {
     this.setState({emailSentSuccess: true, emailSentFailure: false});
-    console.log(response);
   }
 
-  onRegisterEmailFailure(response) {
+  onRegisterEmailFailure() {
     this.setState({emailSentSuccess: false, emailSentFailure: true});
-    console.log(response);
   }
 
   onRequestConsultation(message) {
@@ -33,14 +31,12 @@ class ConsultationStore {
     this.getInstance().requestConsultation(message);
   }
 
-  onRequestConsultationSuccess(response) {
+  onRequestConsultationSuccess() {
     this.setState({emailSentSuccess: true, emailSentFailure: false});
-    console.log(response);
   }
 
-  onRequestConsultationFailure(response) {
+  onRequestConsultationFailure() {
     this.setState({emailSentSuccess: false, emailSentFailure: true});
-    console.log(response);
   }
   onResetStatus() {
     this.setState({emailSentSuccess: false, emailSentFailure: false});

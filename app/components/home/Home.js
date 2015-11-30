@@ -84,7 +84,7 @@ export default class Home extends React.Component {
                             </div>
                         </div>
                         <div className="row">
-                            <InfoCard scrollAnimate={900}>
+                            <InfoCard scrollAnimate={800}>
                                 <div className="col-sm-4">
                                     <div className="about-logo">
                                     </div>
@@ -96,7 +96,7 @@ export default class Home extends React.Component {
                                     </p>
                                 </div>
                             </InfoCard>
-                            <InfoCard scrollAnimate={1200} fadeDirection="fade-in-right">
+                            <InfoCard scrollAnimate={1250} fadeDirection="fade-in-right">
                                 <div className="col-sm-8">
                                     <h2>Chris Cempre</h2>
                                     <p>
@@ -108,7 +108,7 @@ export default class Home extends React.Component {
                                     </div>
                                 </div>
                             </InfoCard>
-                            <InfoCard scrollAnimate={1600}>
+                            <InfoCard scrollAnimate={1700}>
                                 <div className="col-sm-4">
                                     <div className="floor-hero">
                                     </div>
