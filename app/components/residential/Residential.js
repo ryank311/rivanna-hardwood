@@ -144,7 +144,6 @@ export default class Residential extends React.Component {
                         <img src={require('../../images/carousel/PB180022.jpg')}/>
                         <img src={require('../../images/carousel/PB180023.jpg')}/>
                         <img src={require('../../images/carousel/PB180025.jpg')}/>
-                        <img src={require('../../images/carousel/PB180027.jpg')}/>
                         <img src={require('../../images/carousel/PB180032.jpg')}/>
                         <img src={require('../../images/carousel/PB180035.jpg')}/>
                         <img src={require('../../images/carousel2.jpg')}/>
