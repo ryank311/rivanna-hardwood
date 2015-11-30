@@ -17,6 +17,10 @@ export default class Residential extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   render() {
     let showSuccess = this.props.ConsultationStore.emailSentSuccess;
     let showError = this.props.ConsultationStore.emailSentFailure;
@@ -60,7 +64,7 @@ export default class Residential extends React.Component {
             <div className="alt-bg">
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-8 col-sm-offset-2 text-center">
+                        <div className="container-title col-sm-8 col-sm-offset-2 text-center">
                             <h1>Your Home Deserves the Best</h1>
                         </div>
                     </div>

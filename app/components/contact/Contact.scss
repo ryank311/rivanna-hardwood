@@ -4,6 +4,9 @@
         padding-bottom: 4em;
     }
     h1 {
+        @media (max-width: 768px) {
+            font-size: 1.8em;
+        }
         a {
             &:hover {
                 text-decoration: none !important;

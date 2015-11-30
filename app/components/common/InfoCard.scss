@@ -7,8 +7,16 @@
     opacity: 1;
     transition: all 0.5s;
 
+    h2 {
+        @media (max-width: 768px) {
+            font-size: 1.4em;
+        }
+    }
     p {
         font-size: 1.6em;
+        @media (max-width: 768px) {
+            font-size: 1em;
+        }
     }
 }
 

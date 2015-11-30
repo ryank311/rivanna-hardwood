@@ -5,6 +5,10 @@ import './Contact.scss';
 
 export default class Contact extends React.Component {
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   render() {
     return (
       <div className="contact-container">

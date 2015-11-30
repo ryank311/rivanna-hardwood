@@ -13,6 +13,10 @@ export default class Home extends React.Component {
     this.state = {email: null};
   }
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
   render() {
     let showSuccess = this.props.ConsultationStore.emailSentSuccess;
     let showError = this.props.ConsultationStore.emailSentFailure;
