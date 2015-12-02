@@ -21,9 +21,6 @@ export default class Navigation extends React.Component {
       this.setState({displayIcon: false});
       window.addEventListener('scroll', this.state.scrollListener);
     }
-    $('.navbar-collapse .nav a').on('click', () => {
-      $('.navbar-toggle').click();
-    });
   }
 
   componentWillUnmount() {
@@ -31,6 +28,17 @@ export default class Navigation extends React.Component {
     if (isHomepage) {
       window.removeEventListener('scroll', this.state.scrollListener);
     }
+  }
+
+  onClickLink() {
+    if (this.state.navClicked) {
+      $('.navbar-toggle').click();
+      this.setState({navClicked: false});
+    }
+  }
+
+  onToggleNavClick() {
+    this.setState({navClicked: true});
   }
 
   render() {
@@ -41,7 +49,7 @@ export default class Navigation extends React.Component {
       <nav className={navClass} role="navigation">
         <div className="container-fluid">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-target" aria-expanded="false">
+            <button type="button" onClick={this.onToggleNavClick.bind(this)} className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-target" aria-expanded="false">
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
@@ -53,8 +61,8 @@ export default class Navigation extends React.Component {
           </div>
           <div className="collapse navbar-collapse" id="navbar-collapse-target">
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li onClick={this.onClickLink.bind(this)}><Link to="/services">Services</Link></li>
+              <li onClick={this.onClickLink.bind(this)}><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
         </div>
