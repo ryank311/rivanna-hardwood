@@ -43,7 +43,7 @@ export default class Contact extends React.Component {
                                     <i className="fa fa-phone-square fa-4x"></i>
                                 </div>
                                 <div className="col-sm-9">
-                                    <h2><a href="tel:434-997-0716">(434) 987-0716</a></h2>
+                                    <h2><a href="tel:434-987-0716">(434) 987-0716</a></h2>
                                 </div>
                             </InfoCard>
                             <InfoCard scrollAnimate={0}>
