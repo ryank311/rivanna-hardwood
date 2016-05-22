@@ -19,8 +19,8 @@ const description = 'Rivanna Wood Floors LLC is a local wood flooring specialist
 const config = {
   link: [
     // Add to homescreen for Chrome on Android
-    { rel: 'icon', href: favicon },
-    { rel: 'stylesheet', href: '/assets/styles/main.css' }
+    { rel: 'icon', href: favicon }
+    // { rel: 'stylesheet', href: '/assets/styles/main.css' }
     // SEO: If your mobile URL is different from the desktop URL,
     // add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones
     // { "rel": "canonical", "href": "http://www.example.com/" }

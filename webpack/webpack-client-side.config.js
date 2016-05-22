@@ -16,7 +16,7 @@ var commonLoaders = [
     loaders: ["react-hot", "babel"],
     include: appPath,
   },
-  { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
+  { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader?limit=5000" },
   { test: /\.css$/, loader: 'style!css?', include: [appPath, modulesPath]},
   { test: /\.html$/, loader: "html-loader" }
 ];

@@ -3,7 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require("webpack");
 
 var assetsPath = path.join(__dirname, "..", "public", "assets");
-var publicPath = "assets/";
+var publicPath = "/assets/";
 var appPath = path.join(__dirname, "..", "app");
 var modulesPath = path.resolve(__dirname, '../node_modules');
 
@@ -13,7 +13,7 @@ var commonLoaders = [
     loader: "babel",
     include: appPath
   },
-  { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
+  { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader?limit=5000" },
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')},
   { test: /\.scss$/,
