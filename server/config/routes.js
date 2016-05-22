@@ -10,6 +10,7 @@ var App = require('../../public/assets/app.server');
 
 var appPath = 'client.js';
 var files = glob.sync('**/client.*.js');
+console.log('App Starting, Current node ENV is ' + process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
   if (files && files.length > 0) {
     var appJSFile = files[0];
