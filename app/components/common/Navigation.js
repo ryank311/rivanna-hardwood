@@ -7,10 +7,10 @@ import './Navigation.scss';
 import brandLogo from '../../images/icon.png';
 
 export default class Navigation extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      displayIcon: this.props.currentPath !== '/',
+      displayIcon: props.currentPath !== '/',
       scrollListener: this.handleScroll.bind(this),
       onToggleNavClick: this.onToggleNavClick.bind(this),
       onClickLink: this.onClickLink.bind(this)
@@ -58,7 +58,12 @@ export default class Navigation extends React.Component {
 
   render() {
     const isHomepage = this.props.currentPath === '/';
-    const navClass = classNames('navbar', 'navbar-fixed-top', 'rivanna-nav', isHomepage ? 'homepage' : '');
+    const navClass = classNames(
+        'navbar',
+        'navbar-fixed-top',
+        'rivanna-nav',
+        isHomepage ? 'homepage' : '',
+        this.state.displayIcon ? 'logo-visible' : '');
     const brandClass = classNames('navbar-brand', this.state.displayIcon ? 'show' : '');
     return (
       <nav className={navClass} role="navigation">

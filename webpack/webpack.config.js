@@ -13,7 +13,7 @@ var commonLoaders = [
     loader: "babel",
     include: appPath
   },
-  { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
+  { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
   { test: /\.html$/, loader: "html-loader" },
   { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')},
   { test: /\.scss$/,
@@ -90,8 +90,7 @@ module.exports = [
     name: "server-side rendering",
     context: path.join(__dirname, "..", "app"),
     entry: {
-      app: "./server",
-      header: "./elements/Header"
+      app: "./server"
     },
     target: "node",
     output: {

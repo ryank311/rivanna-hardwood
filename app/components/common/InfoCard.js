@@ -6,10 +6,10 @@ import './InfoCard.scss';
 
 export default class InfoCard extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      displayCard: this.props.scrollAnimate === 0,
+      displayCard: props.scrollAnimate === 0,
       scrollListener: this.handleScroll.bind(this)
     };
   }

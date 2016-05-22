@@ -64,7 +64,7 @@ export default class Home extends React.Component {
     };
     return (
       <div>
-        <div className="row">
+        <div className="row home-hero-banner">
           <div className="col-sm-12">
             <div className="home-logo-container">
               <div className="home-logo">
@@ -108,7 +108,7 @@ export default class Home extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <InfoCard scrollAnimate={800}>
+                <InfoCard scrollAnimate={650}>
                   <div className="col-sm-4">
                     <div className="about-logo">
                     </div>
@@ -119,8 +119,8 @@ export default class Home extends React.Component {
                         Rivanna Wood Floors specializes in the installation, sanding, re-finishing, and
                         repairing of any and all species of hardwood flooring.  We provide a top quality
                         service that is unique because we take every project on treating each floor
-                        like our very own, and considering our clients’ every need.  Our main goal as
-                        a company is to go above and beyond our clients’ expectations in their
+                        like our very own, and considering our clients' every need.  Our main goal as
+                        a company is to go above and beyond our clients' expectations in their
                         flooring plans.  We use techniques unique to the Charlottesville area to achieve the
                         look that our customers want.  From the lightest to the darkest of colors in the
                         spectrum of staining, dying, and sheen, we work with you to achieve your desired
@@ -129,12 +129,12 @@ export default class Home extends React.Component {
                     </p>
                   </div>
                 </InfoCard>
-                <InfoCard scrollAnimate={1250} fadeDirection="fade-in-right">
+                <InfoCard scrollAnimate={1150} fadeDirection="fade-in-right">
                   <div className="col-sm-8">
                     <h2>Chris Cempre</h2>
                     <p>
                         Owner, Chris Cempré began working on construction sites at a very young
-                        age, helping out during the summers with his grandfather’s construction
+                        age, helping out during the summers with his grandfather's construction
                         company.  There, as well as in other service jobs he held, he developed a very
                         strong work ethic and an understanding of customer service.  Chris began
                         specializing in hardwood flooring in 2004 where he worked for Albemarle
@@ -145,7 +145,7 @@ export default class Home extends React.Component {
                         Administration program at Piedmont Virginia Community College (while holding
                         down other evening positions).  In 2012 Chris resigned from Albemarle Floors
                         and transferred to the University of Virginia where he earned his
-                        bachelor’s degree in Environmental Science in 2014.
+                        bachelor's degree in Environmental Science in 2014.
                     </p>
                   </div>
                   <div className="col-sm-4">
@@ -153,7 +153,7 @@ export default class Home extends React.Component {
                     </div>
                   </div>
                 </InfoCard>
-                <InfoCard scrollAnimate={1700}>
+                <InfoCard scrollAnimate={1600}>
                   <div className="col-sm-4">
                     <div className="floor-hero">
                     </div>
@@ -166,8 +166,8 @@ export default class Home extends React.Component {
                         passion.  After finishing a few small projects he began working with Jerry
                         Sikman Hardwood Floors, consecutively maintaining his own side practice.  In
                         July 2015, Chris decided to finally make a decade-long dream come true, and
-                        founded Rivanna Wood Floors, LLC.  When Chris isn’t making beautiful
-                        hardwooe floors, he can be found in the Rivanna River, a river that represents
+                        founded Rivanna Wood Floors, LLC.  When Chris isn't making beautiful
+                        hardwood floors, he can be found in the Rivanna River, a river that represents
                         beauty, strength, locality, longevity, life, and evolution, which are all things
                         that Chris feels are important in his hardwood floor work.
                     </p>

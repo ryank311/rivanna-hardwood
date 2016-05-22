@@ -6,7 +6,6 @@ var express = require('express');
 var mongoose = require('mongoose');
 var _ = require('lodash');
 var glob = require('glob');
-var Header = require('../../public/assets/header.server');
 var App = require('../../public/assets/app.server');
 
 var appPath = 'app.js';
@@ -33,8 +32,6 @@ module.exports = function(app, passport) {
   // App is a function that requires store data and url to initialize and return the React-rendered html string
   app.get('*', function (req, res, next) {
     var html = App.renderServer(JSON.stringify(res.locals.data || {}), req, res);
-    html = html.replace("TITLE", Header.title)
-                .replace("META", Header.meta);
 
     if(process.env.NODE_ENV === 'development') {
       html = html.replace("LINK", '');

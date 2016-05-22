@@ -13,9 +13,10 @@ const Carousel = function Carousel(props) {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+  let i = 0;
   const sliderChildren = props.children.map((child) => {
     return (
-      <div>{child}</div>
+      <div key={++i} >{child}</div>
     );
   });
   return (

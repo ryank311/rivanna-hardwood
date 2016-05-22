@@ -3,6 +3,7 @@ import AltContainer from 'alt-container';
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
 import ConsultationStore from '../stores/ConsultationStore';
+import Header from './elements/Header';
 
 import '../scss/main.scss';
 
@@ -10,6 +11,7 @@ const App = (props) => {
   const currentPath = props.location ? props.location.pathname : '';
   return (
     <div className="container-fluid">
+      <Header />
       <AltContainer stores={{ ConsultationStore }}>
         <Navigation currentPath={currentPath} />
         {props.children}

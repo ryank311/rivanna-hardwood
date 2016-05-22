@@ -3,7 +3,7 @@
         background-color: #fff;
         height: 4em;
         .navbar-collapse {
-            background: #fff;
+            background: transparent;
         }
 
         ul {
@@ -13,6 +13,11 @@
                 }
             }
         }
+    }
+
+    &.logo-visible {
+        border-bottom: 1px solid #456AA2;
+        box-shadow: 0px 6px 8px rgba(#000, 0.2);
     }
 
     .navbar-brand {
