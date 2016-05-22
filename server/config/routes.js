@@ -16,6 +16,8 @@ if(process.env.NODE_ENV === 'production') {
     var appJSFile = files[0];
     appPath = appJSFile.substring( appJSFile.lastIndexOf('/') + 1 );
     console.log('application js file found at: ' + appPath);
+  } else {
+    console.log('application js file not found.  files length was zero');
   }
 }
 appPath = '/assets/' + appPath;
