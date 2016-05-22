@@ -6,13 +6,13 @@ import ConsultationStore from '../stores/ConsultationStore';
 
 import '../scss/main.scss';
 
-const App = function App() {
-  let currentPath = this.props.location ? this.props.location.pathname : '';
+const App = (props) => {
+  const currentPath = props.location ? props.location.pathname : '';
   return (
     <div className="container-fluid">
       <AltContainer stores={{ ConsultationStore }}>
         <Navigation currentPath={currentPath} />
-        {this.props.children}
+        {props.children}
         <Footer />
       </AltContainer>
     </div>

@@ -1,6 +1,7 @@
 import Iso from 'iso';
 import React from 'react';
-import { RoutingContext, match } from 'react-router';
+import ReactDOMServer from 'react-dom/server';
+import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createLocation';
 
 import alt from 'altInstance';
@@ -31,7 +32,7 @@ const renderToMarkup = (alt, state, req, res) => {
     else if (renderProps == null)
       res.status(404).send('Not found');
     else
-      content = React.renderToString(<RoutingContext {...renderProps} />);
+      content = ReactDOMServer.renderToString(<RouterContext {...renderProps} />);
     markup = Iso.render(content, alt.flush());
   });
 
@@ -43,7 +44,9 @@ const renderToMarkup = (alt, state, req, res) => {
  * We grab the state passed in from the server and the req object from Express/Koa
  * and pass it into the Router.run function.
  */
-export default function render(state, req, res) {
+const renderServer = function renderServer(state, req, res) {
   const markup = renderToMarkup(alt, state, req, res);
   return html.replace('CONTENT', markup);
-}
+};
+
+export { renderServer };
