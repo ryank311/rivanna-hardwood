@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Iso from 'iso';
-import {createHistory} from 'history';
+import { createHistory } from 'history';
 import { Router } from 'react-router';
 
-import alt from 'altInstance';
-import routes from 'routes.js';
+import alt from './altInstance';
+import routes from './routes';
 
 import 'jquery';
 import 'bootstrap';
@@ -18,5 +19,5 @@ let history = createHistory();
  */
 Iso.bootstrap((state, _, container) => {
   alt.bootstrap(state);
-  React.render(<Router history={history}>{routes}</Router>, container);
+  ReactDOM.render(<Router history={history}>{routes}</Router>, container);
 });

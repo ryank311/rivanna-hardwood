@@ -1,8 +1,14 @@
-import alt from 'altInstance';
+import alt from '../altInstance';
 
 class ConsultationActions {
   constructor() {
-    this.generateActions('registerEmail', 'registerEmailSuccess', 'registerEmailFailure', 'requestConsultation', 'requestConsultationSuccess', 'requestConsultationFailure', 'resetStatus');
+    this.generateActions('registerEmail',
+        'registerEmailSuccess',
+        'registerEmailFailure',
+        'requestConsultation',
+        'requestConsultationSuccess',
+        'requestConsultationFailure',
+        'resetStatus');
   }
 }
 

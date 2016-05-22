@@ -13,8 +13,8 @@ var WEBPACK_PORT = 3001;
 var commonLoaders = [
   {
     test: /\.jsx?$/,
-    loaders: ["react-hot", "babel-loader?stage=0"],
-    include: appPath 
+    loaders: ["react-hot", "babel"],
+    include: appPath,
   },
   { test: /\.(png|ico|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
   { test: /\.css$/, loader: 'style!css?', include: [appPath, modulesPath]},

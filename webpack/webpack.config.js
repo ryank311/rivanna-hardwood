@@ -10,7 +10,7 @@ var modulesPath = path.resolve(__dirname, '../node_modules');
 var commonLoaders = [
   {
     test: /\.js$|\.jsx$/,
-    loader: "babel-loader?stage=0",
+    loader: "babel",
     include: appPath
   },
   { test: /\.(png|eot|woff|woff2|ttf|svg|jpg|bmp|gif)(\?.*)?$/, loader: "url-loader" },
