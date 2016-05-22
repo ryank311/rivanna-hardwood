@@ -8,12 +8,14 @@ var _ = require('lodash');
 var glob = require('glob');
 var App = require('../../public/assets/app.server');
 
-var appPath = 'app.js';
-var files = glob.sync('**/app.*.js');
-if (files && files.length > 0) {
-  var appJSFile = files[0];
-  appPath = appJSFile.substring( appJSFile.lastIndexOf('/') + 1 );
-  console.log('application js file found at: ' + appPath);
+var appPath = 'client.js';
+var files = glob.sync('**/client.*.js');
+if(process.env.NODE_ENV === 'production') {
+  if (files && files.length > 0) {
+    var appJSFile = files[0];
+    appPath = appJSFile.substring( appJSFile.lastIndexOf('/') + 1 );
+    console.log('application js file found at: ' + appPath);
+  }
 }
 appPath = '/assets/' + appPath;
 
@@ -32,12 +34,7 @@ module.exports = function(app, passport) {
   // App is a function that requires store data and url to initialize and return the React-rendered html string
   app.get('*', function (req, res, next) {
     var html = App.renderServer(JSON.stringify(res.locals.data || {}), req, res);
-
-    if(process.env.NODE_ENV === 'development') {
-      html = html.replace("SOURCE", '/assets/app.js');
-    } else {
-      html = html.replace("SOURCE", appPath);
-    }
+    html = html.replace("SOURCE", appPath);
 
     res.contentType = "text/html; charset=utf8";
     res.end(html);

@@ -58,7 +58,7 @@ module.exports = [
      */
     context: path.join(__dirname, "..", "app"),
     entry: {
-      app: "./client"
+      client: "./client"
     },
     output: {
       // The output directory as absolute path

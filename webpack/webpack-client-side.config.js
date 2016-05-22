@@ -47,7 +47,7 @@ module.exports = [
      */
     context: path.join(__dirname, "..", "app"),
     entry: {
-      app:[ 'webpack-dev-server/client?http://' + WEBPACK_HOST + ":" + WEBPACK_PORT,
+      client:[ 'webpack-dev-server/client?http://' + WEBPACK_HOST + ":" + WEBPACK_PORT,
        'webpack/hot/only-dev-server',
        "./client" ]
     },
