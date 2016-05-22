@@ -34,12 +34,6 @@ module.exports = function(app, passport) {
     var html = App.renderServer(JSON.stringify(res.locals.data || {}), req, res);
 
     if(process.env.NODE_ENV === 'development') {
-      html = html.replace("LINK", '');
-    } else {
-      html = html.replace("LINK", Header.link);
-    }
-
-    if(process.env.NODE_ENV === 'development') {
       html = html.replace("SOURCE", '/assets/app.js');
     } else {
       html = html.replace("SOURCE", appPath);
