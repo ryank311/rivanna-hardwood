@@ -1,9 +1,14 @@
 .rivanna-nav {
+    border-bottom: 1px solid #fff;
     &.navbar {
         background-color: #fff;
         height: 4em;
         .navbar-collapse {
             background: transparent;
+            @media (max-width: 768px) {
+              background: #fff;
+              border-bottom: 1px solid #456AA2;
+            }
         }
 
         ul {
@@ -39,8 +44,15 @@
             }
         }
     }
+
     .icon-bar {
         background: #456AA2;
+    }
+
+    li > a {
+      &:hover, &:focus, &:active {
+          border-bottom: 1px solid #456AA2;
+      }
     }
 }
 
